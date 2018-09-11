@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 9</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Introduction to Probability Models</h2>
+					<p>Lecture 9</p>
+					<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+					<p><small>Sep 10, 2018</small></p>
+				</section>
+
+				<section data-transition="concave" style="text-align: left;">
+					<h2>Reminders</h2>
+					<ol>
+						<li>The second quiz will be on this <b>Wednesday</b></li>
+					</ol>
+				</section>
+
+				<section data-transition="slide" data-background="#000000" data-background-transition="zoom">
+	       <h2>COMBINATION</h2>
+        </section>
+
+				<section data-transition="concave" style="text-align: left;">
+					<h3>Combination</h3>
+					<p algin="left">
+					  <b>Definition:</b>  Unordered arrangement of r distinct objects
+						from a set of n objects.
+					</p>
+					$$_nC_r =  C_r^n = \frac{n!}{(n - r)! r!}$$
+					$$_5C_2 = C_2^5 = \frac{5!}{(5 - 2)!2!} = \frac{5!}{3!2!} = 10$$
+				</section>
+
+				<section data-transition="concave" style="text-align: left;">
+					<font size="6">
+					<h3>Example 1</h3>
+					<p align="left">In a reality television show race there are 12 contestants.
+						In one part of the race the top 3 finishers are immune from elimination and will
+						move on to the next round.  The remaining participants will have to undergo further
+						challenges to be able to move on to the next round.
+						<ol>
+							<li>How many ways can three contestants move to the next round without
+								 having to complete further challenges? </li>
+							<li>If the first place finisher receives \($\)10000, the second place
+								finisher receives \($\)5000 and third place gets \($\)2500,
+								 how many ways can the prize money be awarded to the original 12 contestants?</li>
+						</ol>
+					 </p>
+				 </font>
+				</section>
+
+				<section data-transition="concave" style="text-align: left;">
+					<font size="6">
+					<h3>Example 2</h3>
+					<p align="left">A study is to be conducted in a small carpet cleaning business to
+						investigate the attitudes of the workers toward various management practices.
+						The company employs 18 people, 10 of which are male.  A total of 7 workers will be randomly selected to take a survey.
+						<ol>
+							<li>How many different samples of 7 workers can be selected? </li>
+							<li>What is the probability that at exactly 2 women will be among the 7 chosen? </li>
+							<li>What is the probability that at least 6 of those chosen for the sample will be male?</li>
+							<li>The company decides to create a committee representing the workers.
+								The committee will have a Chairperson and a secretary and 3 other committee members.
+								How many ways can these positions be filled? </li>
+						</ol>
+					 </p>
+				 </font>
+				</section>
+
+				<section data-transition="slide" data-background="#000000" data-background-transition="zoom">
+	       <h2>MULTINOMIAL COEFFICIENT</h2>
+        </section>
+
+				<section data-transition="concave" style="text-align: left;">
+					<h3>Multinomial Coefficient</h3>
+					<p algin="left">
+					  <b>Definition:</b> m objects are in k distinct groups, size of groups are $m_1, m_2, \cdots, m_k$,
+						number of ways to order these are:
+						$$\binom{m}{m_1, m_2, \cdots, m_k} = \frac{m!}{m_1!m_2!\cdots m_k!}$$
+					</p>
+				</section>
+
+				<section data-transition="concave" style="text-align: left;">
+					<h3>Example 3</h3>
+						<font size="6">
+					<p align="left">Suppose we have the fictional word DALDERFARG.
+						<ol>
+							<li>How many ways are there to arrange all of the letters? </li>
+							<li>What is the probability that the 1st letter is the same as the 2nd letter? </li>
+							<li>What is the probability that an arrangement of all of the letters
+								has the 2 Ds next to each other?</li>
+							<li>What is the probability that an arrangement of all of the letters
+								has the 2 Ds next to each other and it has the 2 Rs grouped together
+								(not necessarily the Ds and Rs next to each other)?</li>
+							<li>What is the probability that an arrangement of all the letters has the 2 Ds before the F?</li>
+						</ol>
+					 </p>
+				 </font>
+				</section>
+
+				<section data-transition="concave" style="text-align: left;">
+					<h3>Example 4</h3>
+					<font size="5">
+					<p align="left">You have many old textbooks in your apartment.  You have 4 math books,
+						 5 economics books and 3 accounting books. Assume that the each textbook is different from the others.
+						<ol>
+							<li>How many distinct ways can you arrange these books on your book shelf?</li>
+							<li>What is the probability that the last book is one of the economics textbooks? </li>
+							<li>What is the probability that none of the math books are next to each other?</li>
+							<li>What is the probability that the first three books are accounting books?</li>
+							<li>You are going to sell two of the books for extra money.  You will choose each
+								book to sell at random.  What is the probability that both books are the same subject?</li>
+							<li>You are going to sell two of the books for extra money.  You will choose each book
+								to sell at random.  What is the probability that you sell at least one economics book?</li>
+						</ol>
+					 </p>
+				 </font>
+				</section>
+
+
+
+
+			</div>
+		</div>
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [{
+						src: '../reveal.js/lib/js/classList.js'
+					},
+					{
+						src: '../reveal.js/plugin/math/math.js',
+						async: true
+					},
+					{
+						src: '../reveal.js/plugin/markdown/marked.js'
+					},
+					{
+						src: '../reveal.js/plugin/markdown/markdown.js'
+					},
+					{
+						src: '../reveal.js/plugin/notes/notes.js',
+						async: true
+					},
+					{
+						src: '../reveal.js/plugin/highlight/highlight.js',
+						async: true,
+						callback: function() {
+							hljs.initHighlightingOnLoad();
+						}
+					}
+				]
+			});
+		</script>
+		</body>
+
+		</html>

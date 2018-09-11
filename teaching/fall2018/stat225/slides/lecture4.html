@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 4</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 4</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Aug 27, 2018</small></p>
+		</section>
+
+		<section data-transition="concave">
+			<h2>Reminders</h2>
+			<ol>
+				<li>The first quiz will be on this <b>Wednesday</b></li>
+				<li>The first homework is posted on the course website and due on <b>Sep 7</b></li>
+			</ol>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+ 		 <font size = "6">
+ 			<h3>Example 1</h3>
+ 		 <p>
+ 			 Drew is a risk taker. On any given weekend, Drew takes risks with or without monetary compensation.
+			 He gets paid 20% of the time he takes risks. The risks involved are to either drink something weird
+			 (like garlic butter) or do something silly (like shave his head into a mohawk).
+			 Drew gets paid and drinks something weird 16% of the time. Drew does not get paid and drinks something weird 72% of the time.
+ 			 <ol>
+ 				 <li>What is the probability Drew drinks something weird?</li>
+ 				 <li>What is the probability he does something silly? </li>
+ 			 </ol>
+ 		 </p>
+ 	 </font>
+ 	 </section>
+
+	 		 <section data-transition="zoom" style="text-align: left;">
+	 			<h3>Example 2</h3>
+	 			<p>You are previewing movies for your young nephew. You have 1284 movies available to view, 272 of which are G-rated. Your nephew
+	 			enjoys movies with puppets, which make up 94 of your G-rated movies. There are only 30 movies with puppets that are not G-rated. if
+	 		you happen to pick a movie that has puppets, what is the probability that it is G-rated?</p>
+	 		 </section>
+
+
+		<section data-transition="slide" data-background="#000000" data-background-transition="zoom">
+		 <h2>Multiplication Rule</h2>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<h2>Multiplication Rule</h2>
+			<ul>
+				<li>$P(A|B) = \frac{P(A\cap B)}{P(B)}$</li>
+				<li>$P(A\cap B) = P(B) \times P(A|B) = P(A) \times P(B|A )$</li>
+				<li>The probability that Events A and B both occur is equal to the
+					probability that Event B occurs times the probability that Event A occurs,
+					given that B has occurred</li>
+			</ul>
+		</section>
+
+		 <section data-transition="zoom" style="text-align: left;">
+			<h3>Example 3</h3>
+			<p>Three cards are dealt successively at random and without replacement from a standard
+				deck of 52 playing cards. What is the probability of receiving, in order, a king, a queen, and a jack?</p>
+		 </section>
+
+
+
+
+
+	</div>
+</div>
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>

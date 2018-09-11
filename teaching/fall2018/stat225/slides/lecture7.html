@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 7</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Introduction to Probability Models</h2>
+					<p>Lecture 7</p>
+					<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+					<p><small>Sep 5, 2018</small></p>
+				</section>
+
+
+
+				<section data-transition="slide" data-background="#000000" data-background-transition="zoom">
+				 <h2>Bayes Rule</h2>
+				</section>
+
+				<section data-transition="zoom" data-background="../image/bayes.jpg" data-background-transition="zoom">
+				</section>
+
+				<section data-transition="zoom" data-background="../image/bayes_t.png" data-background-transition="zoom">
+				</section>
+
+				<section data-transition="convex" style="text-align: left;">
+					<h2>Bayes Rule</h2>
+					<p>If \(B_1, B_2, \cdots, B_n\) forms a partition of $\Omega$, for any event A:
+					\begin{align}
+					P(B_i|A) = & \frac{P(B_i\cap A)}{P(A)} \\
+							     = & \frac{P(B_i\cap A)}{\sum_{i = 1}^n P(A|B_i) \times P(B_i)}
+					\end{align}
+					</p>
+				</section>
+
+				<section data-transition="zoom" style="text-align: left;">
+					<h3>Law of Total Probability</h3>
+					<img data-src="../image/total_prob.png" width="800px">
+				</section>
+
+				<section data-transition="convex" style="text-align: left;">
+					<h2>Tree Diagrams</h2>
+					<p>To Better represent the structure of the probability, tree diagrams can be pretty useful</p>
+					<img data-src="../image/tree.svg" width="600px">
+				</section>
+
+				<section data-transition="convex" style="text-align: left;">
+					<h3>Example 1</h3>
+					<font size="6">
+					<p align="left">
+						After the first exam, a student will go to the beach
+						(event B) depending on whether they pass the exam (event A).
+						The probability a student will pass is 0.9. If a student passes,
+						they go to the beach with a probability of 0.8. However,
+						a student who fails the exam will only go to the beach with
+						a probability of 0.4.<br>
+						<ol>
+							<li>What is the probability that a student went to the beach?</li>
+							<li>What is the probability that a student at the beach passed the test? </li>
+							<li>What is the probability that a student not at the beach failed the test?</li>
+							<li>Is going to the beach independent of whether the student passed the exam?</li>
+						</ol>
+					</p>
+					</font>
+        </section>
+
+				<section data-transition="convex" style="text-align: left;">
+					<h3>Example 2</h3>
+					<font size="6">
+					<p align="left">
+						Let us assume that a specific disease is only present in 5 out of every 1,000 people.
+						Suppose that the test for the disease is accurate 99% of the time a person has the disease and
+						95% of the time that a person lacks the disease. Find the probability that a random person
+						will test positive for this disease.
+					</font>
+				</section>
+
+			</div>
+		</div>
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [{
+						src: '../reveal.js/lib/js/classList.js'
+					},
+					{
+						src: '../reveal.js/plugin/math/math.js',
+						async: true
+					},
+					{
+						src: '../reveal.js/plugin/markdown/marked.js'
+					},
+					{
+						src: '../reveal.js/plugin/markdown/markdown.js'
+					},
+					{
+						src: '../reveal.js/plugin/notes/notes.js',
+						async: true
+					},
+					{
+						src: '../reveal.js/plugin/highlight/highlight.js',
+						async: true,
+						callback: function() {
+							hljs.initHighlightingOnLoad();
+						}
+					}
+				]
+			});
+		</script>
+		</body>
+
+		</html>
