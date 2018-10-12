@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 21</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 21</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Oct 12, 2018</small></p>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<h2>Discrete Random Variables</h2>
+			<p align="left">
+				<ul>
+					<li>Bernoulli</li>
+					<li>Binomial</li>
+					<li>Hypergeometric</li>
+					<li>Poisson</li>
+					<li>Geometric</li>
+					<li>Negative Binomial</li>
+				</ul>
+			</p>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<h2>Bernoulli Distribution</h2>
+			<ul>
+				<li>$X \sim Bern(p)$</li>
+				<li><b>The definition of $X$</b>: the success of some event on a single trial.</li>
+				<li><b>Support: </b>$\{0, 1\}$</li>
+				<li><b>Parameter: </b> p </li>
+				<li><b>PMF: </b>$P_X(x) = p^x (1-p)^{1-x}$</li>
+				<li><b>Expected Value: </b> $E[X] = p$</li>
+				<li><b>Variance: </b>$Var(X) = p(1-p)$</li>
+			</ul>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+		  <font size = "6">
+		  <h2>Binomial Distribution</h2>
+			  <ul>
+				  <li>$X\sim Binomial(n, p)$</li>
+				  <li><b>The definition of $X$</b>: the total number of successes in a sequence of n independent Bernoulli experiments, with a success rate p</li>
+				  <li><b>Support: </b>$\{0, 1, 2, \cdots, n\}$</li>
+				  <li><b>Parameter: </b> n, p </li>
+				  <li><b>PMF: </b>$P_X(x) = C_x^n p^x (1-p)^{n-x}$</li>
+				  <li><b>Expected Value: </b>$E[X] = np$</li>
+				  <li><b>Variance: </b>$Var(X) = np(1-p)$</li>
+			  </ul>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Hypergeometric Distribution</h3>
+			<ul>
+				<li>$X \sim Hyper(N, n, M)$</li>
+				<li><b>The definition of $X$</b>: the number of success in $n$ trail without replacement from a finite population of size N that contains exactly M objects with that feature.</li>
+				<li><b>Support:</b> $\{0, 1, 2, \cdots, n\}$ or $\{0, 1, 2, \cdots, M\}$</li>
+				<li><b>Parameters:</b> </li>
+				<ul>
+					<li>$N:$ Population size</li>
+					<li>$M:$ Number of possible successes</li>
+					<li>$n:$ Number of trials</li>
+				</ul>
+				<li><b>PMF:</b> $P_X(x) = \frac{C_x^M C_{n-x}^{N - M}}{C_n^N}$</li>
+				<li><b>Expected Value:</b> $E[X] = n \frac{M}{N}$</li>
+				<li><b>Variance:</b> $Var(X) = n \frac{M}{N} (1 - \frac{M}{N}) \frac{N-n}{N-1}$</li>
+			</ul>
+		</font>
+		</section>
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Poisson Distribution</h3>
+			<ul>
+				<li>$X \sim Poisson(\lambda)$</li>
+				<li><b>The definition of $X$</b>: the number of success per $\underline{\hspace{1cm}}$, and $\underline{\hspace{1cm}}$ can be time, length, space unit and so on</li>
+				<li><b>Support:</b> $\{0, 1, 2, \cdots\}$</li>
+				<li><b>Parameters:</b> $\lambda$, the average success rate per $\underline{\hspace{1cm}}$</li>
+				<li><b>PMF:</b> $P_X(x) = \frac{e^{-\lambda} \lambda^x}{x!}$</li>
+				<li><b>Expected Value:</b> $E[X] = \lambda$</li>
+				<li><b>Variance:</b> $Var(X) = \lambda$</li>
+			</ul>
+		</font>
+		</section>
+
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Geometric Distribution</h3>
+			<ul>
+                <li>$X \sim Geom(p)$</li>
+				<li><b>The definition of $X$ </b>: the number of trials to get the first success</li>
+				<li><b>Support:</b> $\{1, 2, \cdots\}$, NOTE: <b>NO ZERO!</b></li>
+				<li><b>Parameter:</b> $p$, the probability of success in one trial</li>
+				<li><b>PMF:</b> $P_X(x) = p(1-p)^{x - 1}$</li>
+				<li><b>Expected Value:</b> $E[X] = \frac{1}{p}$</li>
+				<li><b>Variance:</b> $Var(X) = \frac{1 - p}{p^2}$</li>
+                </li>
+			</ul>
+		</font>
+		</section>
+
+
+
+        <section data-transition="zoom" style="text-align: left;">
+            <font size = "6">
+            <h3>Negative Binomial Distribution</h3>
+            <p>
+            <ul>
+				<li>$X \sim NegBin(r, p)$ or $X \sim NB(r, p)$</li>
+                <li><b>The definition of $X$ </b>: the number of trials to get the $r_{th}$ success</li>
+                <li><b>Support:</b> $\{r, r + 1, r + 2, \cdots\}$</li>
+                <li><b>Parameter:</b>
+                    <ul>
+                        <li>$p$: the probability of success in one trial</li>
+                        <li>$r$: success of interest</li>
+                    </ul>
+                    </li>
+                <li><b>PMF:</b> $P_X(x) = C_{r-1}^{x-1}p^r(1-p)^{x - r}$</li>
+                <li><b>Expected Value:</b> $E[X] = \frac{r}{p}$</li>
+                <li><b>Variance:</b> $Var(X) = \frac{r(1 - p)}{p^2}$</li>
+            </ul>
+            </p>
+        </font>
+        </section>
+
+
+		<section style="text-align: left;">
+			<font size = "6">
+			<h2>Example 1</h2>
+			<p>
+			In a jar there are 200,000,000 coins, 5,000,000 of which are quarters.
+			You select 50 coins from the jar randomly and without replacement.
+			Let X be the number of quarters in your sample.
+				<ol>
+        	<li>What is the distribution of X? </li>
+        	<li>Find the probability that X is 2</li>
+            <li>Is there an approximate distribution for X, why or why not? If there is, call the approximation $X^\star$ and find $P(X^\star = 2)$ as well</li>
+        </ol>
+			</p>
+		</font>
+		</section>
+
+		<section style="text-align: left;">
+			<font size = "5">
+			<h3>Example 2</h3>
+			<p>
+	        The wonderful candy shop, Albanese Candy Outlet, makes chocolate chip cookies as part of their production line.
+			Chocolate chips in the cookies are randomly and independently distributed with an average of 12 chocolate chips per cookie.
+			You and 9 of your friends decide to make a trip to Albanese Candy Outlet. Each of you buys one chocolate chip cookie.
+
+				<ol>
+					<li>What is the probability that your cookie contains between 10 and 15 chocolate chips inclusive? </li>
+					<li>What is the probability that 5 or 6 people in your group have cookies with between 10 and 15 chocolate chips inclusive? </li>
+					<li>While examining your cookies (one-by-one), what is the probability that it takes at least 4 cookies to find the first one with between 10 and 15 chocolate chips inclusive?</li>
+					<li>While examining your cookies (one-by-one), what is the probability that it takes at least 4 cookies to find the first one with 12 or 13 chocolate chips?</li>
+					<li>Suppose you and your 9 friends were to go repeatedly to Albanese Candy Outlet. What is the probability that it takes until your sixth trip so that 5 or 6 people in your group have 12 or 13 chocolate chips in their cookie? </li>
+				</ol>
+			</p>
+		</font>
+		</section>
+
+        <section style="text-align: left;">
+			<font size = "5">
+			<h3>Example 3</h3>
+			<p>
+			Name the distribution, parameter(s) and support
+	         <ul>
+	             <li>X is the number of 5's in ten rolls of a fair die. </li>
+	             <li>A baseball starting lineup consists of nine players, three of which are outfielders. A random sample of three players is taken from a baseball starting lineup. Let X be the number of outfielders in the sample. </li>
+	             <li>X is the number of Hearts in a five-card poker hand dealt from a standard 52 card deck. </li>
+                 <li>Let us repeatedly deal out five-card poker hands (replacing the cards after each hand is dealt). Let X be the deal number of the first time in which we get a flush</li>
+				 <li>Let us repeatedly deal out five-card poker hands (replacing the cards after each hand is dealt). Let X be tahe deal number of the eighth time in which we get a a straight(allow the A-5 straight). </li>
+				 <li>A player wins a game if he/she rolls at least one 6 in four rolls of a fair die. Let X be the outcome (win or lose) of this game.</li>
+	         </ul>
+			</p>
+		</font>
+		</section>
+
+	</div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>
