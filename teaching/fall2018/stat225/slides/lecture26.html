@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 26</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 26</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Oct 24, 2018</small></p>
+		</section>
+
+
+		<section data-transition="slide" data-background="../image/quiz.png" data-background-transition="zoom">
+			<h1><a href="https://www.google.com/search?q=countdown+timer">Time for Quiz</a></h1>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+				   <font size = "6">
+				   <h3>Poisson Process</h3>
+				   <p>
+				   Poisson Process models the number of successes in a particular time period.
+				   Essentially, it’s taking an Exponential random variable and looking at a particular section of time,
+				   the number of successes in that time is a Poisson random variable.</br>
+				   Consider a process in which events occur, such as</br>
+
+					   <ul>
+						   <li>Patients arriving at a hospital emergency room.</li>
+						   <li>Phone calls coming in to a help line</li>
+					   </ul>
+				   </br>
+
+				   If we count the number of successes by time t and call this $N(t)$ and $\lambda$ is the number of success per time unit , then
+				   <ul>
+				   	<li>$ N(t) \sim Poisson(\lambda t)$</li>
+				   	<li>For any interval $(s, t)$,
+ 				   $N(s, t):$ number of successes between time s and t, are $Poisson(\lambda (t-s))$</li>
+				   </ul>
+
+				   </p>
+			   </font>
+	   </section>
+
+
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Example 1</h3>
+			<p>Phone calls arrive at a switch board at a rate of 2 per minute.</p>
+			<ol>
+			<li>What is the distribution, parameter(s) and support for X – the number of calls between 9:30 and 9:45 am?</li>
+			<li>What is the probability that 10 calls occur in the next 4 minutes?</li>
+			<li>What is the probability the next call comes in less than 30 seconds, and the second call comes at least 45 seconds after that?</li>
+			<li>Given there are 7 calls in 3 minutes, what is the probability they all came in the last minute?</li>
+			</ol>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Example 2</h3>
+			<p>Tornado intensity is measured on the Fujita Scale. As the value of the Fujita scale increases from F0 to F5, so does the intensity of the storm.
+			In Indiana, tornados of F3 or higher intensity occur on average once every ten years. Let T be the time (in years) between tornadoes of this intensity in Indiana. Assume tornadoes of this intensity occur independently</p>
+			<ol>
+			<li>What is the distribution and parameter(s) of T?  What is the support for T?</li>
+			<li>Given that there has not been a tornado of F3 or higher intensity in the last 6 years in Indiana, what is the probability that it will take between 11 and 15 years (total time) for the next tornado of that intensity to strike in Indiana? </li>
+			<li>What is the probability that 2 tornadoes of F3 or higher occur in Indiana from 2015 to 2025 and 5 tornadoes of F3 or higher occur in Indiana from 2037 to 2077?  </li>
+			<li>Suppose that 6 tornadoes of F3 or higher occurred in Indiana between 1920 and 1960, but unfortunately the detailed records do not show exactly when these 6 tornadoes were.  What is the probability that 2 of them occurred in the first 10 years of this time period (i.e. between 1920 and 1930)?
+</li>
+			</ol>
+		</font>
+		</section>
+
+	</div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>
