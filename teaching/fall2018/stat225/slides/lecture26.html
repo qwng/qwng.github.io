@@ -36,68 +36,34 @@
 			<p><small>Oct 24, 2018</small></p>
 		</section>
 
-
-		<section data-transition="slide" data-background="../image/quiz.png" data-background-transition="zoom">
-			<h1><a href="https://www.google.com/search?q=countdown+timer">Time for Quiz</a></h1>
-		</section>
-
 		<section data-transition="zoom" style="text-align: left;">
 				   <font size = "6">
-				   <h3>Poisson Process</h3>
+				   <h3>Example 1</h3>
 				   <p>
-				   Poisson Process models the number of successes in a particular time period.
-				   Essentially, it’s taking an Exponential random variable and looking at a particular section of time,
-				   the number of successes in that time is a Poisson random variable.</br>
-				   Consider a process in which events occur, such as</br>
-
-					   <ul>
-						   <li>Patients arriving at a hospital emergency room.</li>
-						   <li>Phone calls coming in to a help line</li>
-					   </ul>
-				   </br>
-
-				   If we count the number of successes by time t and call this $N(t)$ and $\lambda$ is the number of success per time unit , then
-				   <ul>
-				   	<li>$ N(t) \sim Poisson(\lambda t)$</li>
-				   	<li>For any interval $(s, t)$,
- 				   $N(s, t):$ number of successes between time s and t, are $Poisson(\lambda (t-s))$</li>
-				   </ul>
-
+				   Suppose that a continuous random variable, X, has the probability density function (PDF) given below:
+				   \[
+     f_X(x)=\left\{
+                 \begin{array}{ll}
+                   \frac{3}{2}x, 0 \le x \le 1\\
+                   \frac{1}{4}, 5 \le x \le 6\\
+                   0, otherwise
+                 \end{array}
+               \right.
+   \]
+					   <ol>
+						   <li>What is the probability that $X$ is equal to 4?</li>
+						   <li>What is the probability that $X$ is more than 4?</li>
+						   <li>Find $F_X(5.6)$</li>
+						   <li>Knowing that $X$ is more than $0.8$, what is the probability that $X$ is less than 5.6?</li>
+						   <li>What is the $85_{th}$ percentile of $X$?</li>
+					   </ol>
 				   </p>
 			   </font>
 	   </section>
 
-
-
-
-		<section data-transition="zoom" style="text-align: left;">
-			<font size = "5">
-			<h3>Example 1</h3>
-			<p>Phone calls arrive at a switch board at a rate of 2 per minute.</p>
-			<ol>
-			<li>What is the distribution, parameter(s) and support for X – the number of calls between 9:30 and 9:45 am?</li>
-			<li>What is the probability that 10 calls occur in the next 4 minutes?</li>
-			<li>What is the probability the next call comes in less than 30 seconds, and the second call comes at least 45 seconds after that?</li>
-			<li>Given there are 7 calls in 3 minutes, what is the probability they all came in the last minute?</li>
-			</ol>
-		</font>
+		<section data-transition="slide" data-background="../image/quiz.png" data-background-transition="zoom">
+			<h1><a href="https://www.google.com/search?q=countdown+timer">Time for Quiz</a></h1>
 		</section>
-
-		<section data-transition="zoom" style="text-align: left;">
-			<font size = "5">
-			<h3>Example 2</h3>
-			<p>Tornado intensity is measured on the Fujita Scale. As the value of the Fujita scale increases from F0 to F5, so does the intensity of the storm.
-			In Indiana, tornados of F3 or higher intensity occur on average once every ten years. Let T be the time (in years) between tornadoes of this intensity in Indiana. Assume tornadoes of this intensity occur independently</p>
-			<ol>
-			<li>What is the distribution and parameter(s) of T?  What is the support for T?</li>
-			<li>Given that there has not been a tornado of F3 or higher intensity in the last 6 years in Indiana, what is the probability that it will take between 11 and 15 years (total time) for the next tornado of that intensity to strike in Indiana? </li>
-			<li>What is the probability that 2 tornadoes of F3 or higher occur in Indiana from 2015 to 2025 and 5 tornadoes of F3 or higher occur in Indiana from 2037 to 2077?  </li>
-			<li>Suppose that 6 tornadoes of F3 or higher occurred in Indiana between 1920 and 1960, but unfortunately the detailed records do not show exactly when these 6 tornadoes were.  What is the probability that 2 of them occurred in the first 10 years of this time period (i.e. between 1920 and 1930)?
-</li>
-			</ol>
-		</font>
-		</section>
-
 	</div>
 </div>
 
