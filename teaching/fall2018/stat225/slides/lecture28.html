@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 28</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 28</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Oct 30, 2018</small></p>
+		</section>
+
+
+		<section data-transition="concave" style="text-align: left;">
+			<font size = "7">
+			<h3>Reminder</h3>
+			<ol>
+				<li>Exam 2 will be from <b>8:00pm to 9:30pm</b> at <b>WALC 1055</b> on <b>Tuesday, Oct 30</b></li>
+			</ol>
+		</font>
+		</section>
+
+		<section data-transition="concave" style="text-align: left;">
+			<font size = "6">
+			<h3>Named Random Variables</h3>
+			<ul>
+				<li>
+					Discrete
+					<ul>
+						<li>Bernoulli</li>
+						<li>Binomial</li>
+						<li>Hypergeometric</li>
+						<li>Poisson</li>
+						<li>Geometric</li>
+						<li>Negative Binomial</li>
+					</ul>
+				</li>
+				<li>Continuous
+					<ul>
+						<li>Uniform</li>
+						<li>Exponential</li>
+						<li><strike>Normal</strike></li>
+					</ul>
+				</li>
+				<li>Refer to <a href="lecture21.html">Lecture 21</a> for a summary of discrete random variables</li>
+			</ul>
+		</font>
+		</section>
+
+		<section data-transition="concave" style="text-align: left;">
+			<font size = "5">
+			<h3>Uniform Random Variable</h3>
+			<ul>
+				<li><b>The definition of $X$ </b>: the variable is evenly distributed over an interval</li>
+				<li><b>Support:</b> $X \in [a, b]$ or $a \le X \le b$</li>
+				<li><b>Parameter:</b> $a, b$, the end points of the interval</li>
+				<li><b>PDF:</b> $f_X(x) = \frac{1}{b- a}$, for $a \le x \le b$</li>
+				<li><b>CDF: </b>
+					\[
+				   F_X(x)=\left\{
+				   \begin{array}{ll}
+				    0, x < a\\
+				    \frac{x - a}{b - a}, a \le x \le b\\
+				    1, x > b
+				   \end{array}
+				   \right.
+				   \]
+				</li>
+				<li><b>Expected Value:</b> $E[X] = \frac{a + b}{2}$</li>
+				<li><b>Variance:</b> $Var(X) = \frac{(b - a)^2}{12}$</li>
+				<li><b>Notation:</b> $X \sim Unif(a, b)$</li>
+			</ul>
+		</font>
+		</section>
+
+		<section data-transition="concave" style="text-align: left;">
+			<font size = "5">
+			<h3>Exponential Random Variable</h3>
+			<ul>
+				<li><b>The definition of $X$ </b>: The waiting time until the first success</li>
+				<li><b>Support:</b> $X \in [0, +\infty)$ or $X \ge 0$</li>
+				<li><b>Parameter:</b>
+					<ul>
+						<li>$\mu$, the average amount of time for one success, $\mu = \frac{1}{\lambda}$ <b>OR</b></li>
+						<li>$\lambda$, the number of success per time unit, $\lambda = \frac{1}{\mu}$</li>
+					</ul>
+					</li>
+				<li><b>PDF:</b> $f_X(x) = \frac{1}{\mu} e^{-\frac{x}{\mu}}=  \lambda e^{-\lambda x}$, for $ x \ge 0$</li>
+				<li><b>CDF: </b>
+					\[
+				   F_X(x)= P(X \le x) = \left\{
+				   \begin{array}{ll}
+					0, x < 0\\
+					1 - e^{-\frac{x}{\mu}} OR  1 - e^{-\lambda x}, x \ge 0
+					\end{array}
+				   \right.
+				   \]
+				</li>
+				<li><b>Expected Value:</b> $E[X] = \mu = \frac{1}{\lambda}$</li>
+				<li><b>Variance:</b> $Var(X) = \mu^2 = \frac{1}{\lambda^2}$</li>
+				<li><b>Notation:</b> $X \sim Exp(\mu)$ or $X \sim Exponential(\mu)$ or $X \sim Exp(\lambda)$ or $X \sim Exponential(\lambda)$</li>
+			</ul>
+		</font>
+		</section>
+
+		<section data-transition="concave" style="text-align: left;">
+				   <font size = "6">
+				   <h3>Example 1</h3>
+				   <p>
+				   Suppose that a continuous random variable, X, has the probability density function (PDF) given below:
+				   \[
+     f_X(x)=\left\{
+                 \begin{array}{ll}
+                   c(x^2 + 4x + 4), 0 \le x \le 2\\
+                   0, otherwise
+                 \end{array}
+               \right.
+   \]
+					   <ol>
+						   <li>Find the value of cthat makes this a valid pdf.</li>
+						   <li>Find the CDF of X</li>
+						   <li>Find $F_X(0.6)$</li>
+						   <li>Find the mean of XFind the mean of X</li>
+						   <li>What is the probability X is greater than 0.6given X is less than 1?</li>
+					   </ol>
+				   </p>
+			   </font>
+	   </section>
+
+	   <section data-transition="concave" style="text-align: left;">
+				  <font size = "5">
+				  <h3>Example 2</h3>
+				  <p>
+				  The average lifetime of acertain type of light bulb is 500 hours. Assume that if the current light bulb burns out, it will get changed immediately. Please answer the following questions.
+					  <ol>
+						  <li>Name the distribution and parameter(s) of the light bulb’s life</li>
+						  <li>What’s the probability that a light bulb lasts more than 520 hours?</li>
+						  <li>If we know a light bulb is still working after 230 hours, what’s the probability that it burns out before reaching 600 hours</li>
+							<li>What is the average number of light bulbs that will be used in 2000 hours?</li>
+							<li>What is the probability that there are between 4 and 6 light bulbs (inclusive) used in 2000 hours?</li>
+							<li>If we know that there were 6 light bulbs used in 2000 hours, what’s the probability that 2 were used in the last 400 hours?</li>
+					  </ol>
+				  </p>
+			  </font>
+	  </section>
+
+	  <section data-transition="concave" style="text-align: left;">
+   			  <font size = "6">
+   			  <h3>Example 3</h3>
+   			  <p>
+   			  A certain component that your company manufactures has a weight that varies evenly from 59 grams to 75 grams. Each of these manufactured components is independent of the others.
+   				  <ol>
+   					  <li>What is the probability that a randomly chosen component weighs between 62 and 73 grams? State the distribution and parameter(s) you are using.</li>
+   					  <li>What is the standard deviation of the component weights?</li>
+   					  <li>Find the cut-off for the upper quartile of component weights.</li>
+					  <li>Knowing that a randomly chosen component weighs less than 70 grams, what is the probability that it weighs more than 64.8 grams?</li>
+   				  </ol>
+   			  </p>
+   		  </font>
+     </section>
+
+	 <section data-transition="concave" style="text-align: left;">
+				 <font size = "5">
+				 <h3>Example 4</h3>
+				 <p>
+				 Suppose that you have a box containing 50 balls, 35 of which are black. The rest are red.
+					 <ol>
+						 <li>You will randomly choose 10 balls without replacement. Let R be the number of red balls in your sample. What is the probability that there are at least 2 red balls in your sample? What are the distribution and parameter(s) for R? .</li>
+						 <li>After the sampling in part a) you will put all the balls back in the box. You will now randomly choose a ball and note its color. Then you will return the ball to the box. (i.e. You are sampling with replacement.) Let T be number of balls you draw out until you get your first red ball. What is the average number of tries that it will take to get your first red ball? What are the distribution and parameter(s) of T?</li>
+						 <li>You have drawn out 3 balls (with replacement) and have still not gotten a red ball. What is the probability that it will take at most 5 draws to get your first red?</li>
+					     <li>What is the probability that it takes 9 tries (with replacement) to get three red balls?</li>
+					 </ol>
+				 </p>
+			 </font>
+	 </section>
+
+
+
+
+
+
+
+	</div>
+</div>
+
+
+
+
+
+
+	</div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>
