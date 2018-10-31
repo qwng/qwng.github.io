@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 29</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 29</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Oct 31, 2018</small></p>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Normal Random Variable</h3>
+			<ul>
+				<li><b>Support:</b> $X \in (-\infty, +\infty)$</li>
+				<li><b>Parameter:</b>
+					<ul>
+						<li>$\mu$: the mean of the random variable, determines the center of the distribution</li>
+						<li>$\sigma$: the standard deviation of the random variable, determines the shape of the distribution</li>
+					</ul>
+				</li>
+				<li><b>PDF:</b> $f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x - \mu)^2}{2 \sigma^2}}$</li>
+				<li><b>CDF:</b> $F_X(x) = P(X \le x)$, no closed-form expression</li>
+				<li><b>Expected Value:</b> $E[X] = \mu$</li>
+				<li><b>Variance:</b> $Var(X) = \sigma^2$</li>
+				<li><b>Notation:</b> $X \sim Normal(\mu, \sigma)$ or $X \sim N(\mu, \sigma)$</li>
+			</ul>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Standard Normal Distribution</h3>
+			<p>So, what if you need different probabilities for $X \sim N(\mu, \sigma)$? We'd need an infinite number of tables or a way to calculate the probabilities
+				for infinite combination of  and  values. One way is through calculus (i.e. integrate the pdf) OR We standardize (convert) the particular normal distribution and use ONE TABLE for all.
+ </p>
+			<ul>
+			<li>The standard normal distribution is the normal distribution with $\mu = 0, \sigma = 1$, namely, $X\sim N(\mu = 0, \sigma = 1)$</li>
+			<li>The CDF of standard normal distribution is denoted as $\Phi(x)$</li>
+			<li>You convert $X \sim N(\mu, \sigma)$ to $Z \sim N(\mu = 0, \sigma = 1)$, where $Z$ has the standard Normal distribution. Convert/standardize using:
+				$$Z = \frac{X - \mu}{\sigma}$$
+				This standardized value is called a Z-score
+			</li>
+			<li>z-scores tell you how many standard deviation the original observation falls from the mean.
+				 For example a z-score = 1.0, tells you that the particular value is exactly one standard deviation above the mean</li>
+			<li>z-scores are what you need in order to use the Standard Normal Table</li>
+			<li>z-scores also let you compare two values from different Normal distributions to see their probabilities on the same scale. </li>
+		</ul>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Z-score</h3>
+			<p>$P(Z \le z-score)$ is what you will find on the Normal table. To use the table:</p>
+			<ul>
+				<li>z-scores run down the left-most column of the tables.  The 2nd decimal place of the z-score runs across the top-most row of the tables.  </li>
+				<li>The inner numbers are the probability that you are at or lower than your z-score</li>
+				<li>The top part of the table has negative z-scores, the second page has positive z-scores.</li>
+				<li>Remember that your table gives you the probability
+					$$P(Z \le z) = \Phi(z)$$
+				</li>
+				<li>$P(Z > z) = 1 - \Phi(z)$</li>
+				<li>$P(a < Z < b) = \Phi(b) - \Phi(a)$</li>
+			</ul>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Example 1</h3>
+			<p>Use the Normal table to find the following probabilities:</p>
+			<ol>
+			<li>$P(Z < 1.48)$</li>
+			<li>$P(Z \le 1.48)$</li>
+			<li>$P(Z > 1.48)$</li>
+			<li>$P(Z < -1.48)$</li>
+			<li>$P(Z = 1.48)$</li>
+			<li>$P(-1.48 < Z < 1.48)$</li>
+			<li>$P(Z < - 4.9)$</li>
+			<li>$P(Z < 5.34)$</li>
+			</ol>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Example 2</h3>
+			<p>If $X\sim N(\mu = 4, \sigma = 1.5)$, use the Normal table to find the following probabilities:</p>
+			<ol>
+			<li>$P(X < 3)$</li>
+			<li>$P(X > 4.5)$</li>
+			<li>$P(3 < X < 4.56)$</li>
+			<li>$P(X < 4)$</li>
+			<li>P(X = 3.45)</li>
+			<li>P(X > 11)</li>
+			</ol>
+		</font>
+		</section>
+
+	</div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>
