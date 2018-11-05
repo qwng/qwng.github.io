@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 31</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 31</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Nov 5, 2018</small></p>
+		</section>
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Combining Normal Distributions</h3>
+			<p> If we have independent Normal random variables,
+				then the sum(or other linear combination) of these Normal random variables is ALSO Normal</p>
+			<p>If $X_1 \sim N(\mu_1, \sigma_1), X_2 \sim N(\mu_2, \sigma_2), \cdots, X_n \sim N(\mu_n, \sigma_n)$, and
+				$X = \sum_{i=1}^n X_i$, then
+                 <ul>
+					<li>$X \sim N(\mu, \sigma)$</li>
+                 	<li>$\mu = E[X] = \sum_{i = 1}^n \mu_i$</li>
+                 	<li>$Var(X) = \sum_{i=1}^n \sigma_i^2$</li>
+                 	<li>$\sigma = SD(X) = \sqrt{Var(X)} = \sqrt{\sum_{i=1}^n \sigma_i^2}$</li>
+                 </ul>
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Example 1</h3>
+			<p>Let $X_1, X_2$ and $X_3$ be independent Normal random variables, where $$X_1 \sim N(\mu = 4, \sigma = 2), X_2 \sim N(\mu = 3.1, \sigma = 7), X_3 \sim N(\mu = 1.5, \sigma = 1.4)$$ </p>
+			<ol>
+			<li>If $Y = X_1 + X_2 + X_3$, then what is the distribution of $Y$?   Find Find the $83_{rd}$ percentile of $Y$</li>
+			<li>Let $K = 2X_3 - X_2 + \frac{1}{3} X_1$, What is the distribution of $K$</li>
+			</ol>
+		</font>
+		</section>
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Normal Approximation to the Binomial</h3>
+			<p>If a Binomial distribution has a large enough combination of n and p, it behaves much like a Normal distribution, which means we can use the Normal distribution to approximate the original Binomial distribution</p>
+			<ul>
+				<li>If $X \sim Bin(n, p)$, and $np > 5, n(1 - p) > 5$</li>
+				<li>Then we can use $X^\star \sim N(\mu = np, \sigma = \sqrt{np(1-p)})$, to approximate $X$</li>
+			</ul>
+			<p>You may notice that Binomial is Discrete, and Normal is Continuous. This means the approximation comes at a cost of accuracy that we must try to correct. When we use the approximation, we need to perform a continuity correction:</p>
+			<ul>
+				<li>If you’re looking for: $P(a \le X \le b)$</li>
+				<li>Use $P(a - 0.5 < X^\star < b + 0.5)$</li>
+			</ul>
+
+		</font>
+		</section>
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Example 2</h3>
+			<p>A class has 400 students, and each drops the course independently with probability 0.07. Let X be the number of students that finish the course</p>
+			<ol>
+			<li>Find $P(370 \le X \le 373)$, what is the exact distribution of $X$?</li>
+			<li>Any approximation?</li>
+			</ol>
+		</font>
+		</section>
+
+
+	</div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>
