@@ -91,10 +91,24 @@
 		</font>
 		</section>
 
-
 		<section data-transition="zoom" style="text-align: left;">
 			<font size = "6">
 			<h3>Example 2</h3>
+			<p>If all conditions are satistified, find the Normal approximation to the following probability statement where $X$ follows a Binomial distribution </p>
+			<ol>
+			<li>$P(4 \le X \le 10)$</li>
+			<li>$P(4 < X < 10)$</li>
+			<li>$P(X \le 6)$</li>
+			<li>$P(X < 5)$</li>
+			<li>$P(X \ge 9)$</li>
+			<li>$P(X  > 8)$</li>
+			</ol>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Example 3</h3>
 			<p>A class has 400 students, and each drops the course independently with probability 0.07. Let X be the number of students that finish the course</p>
 			<ol>
 			<li>Find $P(370 \le X \le 373)$, what is the exact distribution of $X$?</li>
@@ -103,6 +117,17 @@
 		</font>
 		</section>
 
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Three Approximations in this Course</h3>
+			<ol>
+			<li>The Binomial approximation to the Hypergeometric: If $X \sim HyperGeom(N, m, n)$, and $N > 20n$,  we can use $X^\star \sim Binomial(n = n, p = \frac{m}{N})$, to approximate $X$</li>
+			<li>The Poisson approximation to the Binomial: If $X \sim Bin(n, p)$ with <b>$n>100$</b> and $p<0.01$, we can use $X^\star \sim Poisson(\lambda = np)$, to approximate $X$ </li>
+			<li>The Normal approxmation to the Binomial: If $X \sim Bin(n, p)$, and $np > 5, n(1 - p) > 5$, then we can use $X^\star \sim N(\mu = np, \sigma = \sqrt{np(1-p)})$, to approximate $X$</li>
+			</ol>
+
+		</font>
+		</section>
 
 	</div>
 </div>
