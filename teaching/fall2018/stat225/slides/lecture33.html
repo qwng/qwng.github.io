@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 33</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 33</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Nov 9, 2018</small></p>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Measures of Spread</h3>
+			<ul>
+			<li>Range</li>
+			<li>Variance</li>
+			<li>Standard deviation</li>
+			<li>$p_{th}$ percentile</li>
+			<li>Interquartiles Range(IQR)</li>
+		</ul>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Range </h3>
+			<ul>
+		  <li>Range = max - min</li>
+		</ul>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Variance </h3>
+			<p>Variance: based on the difference between each observation and the mean</p>
+			<ul>
+			<li>Population variance: $$\sigma^2 = \frac{\sum(x_i - \mu)^2}{N}$$</li>
+			<li>Sample variance: $$s^2 = \frac{\sum(x_i - \bar{x})^2}{n - 1}$$</li>
+		</ul>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Standard Deviation </h3>
+			<p>Standard deviation: most commonly used for measuring how far observation are from the mean </p>
+			<ul>
+			<li>Population version: $$\sigma = \sqrt{\sigma^2}$$</li>
+			<li>Sample version: $$s = \sqrt{s^2}$$</li>
+		</ul>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>$p_{th}$ percentile </h3>
+			<p>$p_{th}$ percentile: value such that p% of the observation fall at or below it  </p>
+			<ul>
+			<li>Median: $M = 50_{th}$ percentile</li>
+			<li>First quartile: $Q_1 = 25_{th}$ percentile</li>
+			<li>Third quartile: $Q_3 = 75_{th}$ percentile</li>
+		</ul>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>How to Find a Percentile for Data</h3>
+			<ol>
+				<li>Order the data in increasing order</li>
+				<li>Calculate $i=\frac{np}{100}$, where $n$ is the sample size, $p$ is the percentile</li>
+				<li>
+					<ul>
+						<li>If $i$ is not an integer, round $i$ up to the next integer. Then take the $i_{th}$ value</li>
+						<li>If $i$ is an integer, take an average of the $i_{th}$ and $(i + 1)_{th}$ values</li>
+					</ul>
+				</li>
+		</ol>
+		<p>Example: -20, 1, 23, 25, 32.5, 33, 67</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Interquartiles Range(IQR) </h3>
+			<ul>
+			<li>IQR = $Q_3 - Q_1$</li>
+			<li>Outliers: an observation is said to be a suspected outlier if it is
+				$$> Q_3 + 1.5*IQR$$
+				OR
+				$$< Q_1 - 1.5 * IQR$$
+			</li>
+		</ul>
+		</font>
+		</section>
+
+
+
+
+
+	</div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>
