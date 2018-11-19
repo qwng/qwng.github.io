@@ -2,11 +2,11 @@
 main:
 #   - title: "About"
 #     url: /about/
+   - title: "Teaching"
+     url: /teach/ 
    - title: "Education"
      url: /edu/
    - title: "Publication"
      url: /pub/
-   - title: "Teaching"
-     url: /teach/ 
   # - title: "Sitemap"
   #   url: /sitemap/
