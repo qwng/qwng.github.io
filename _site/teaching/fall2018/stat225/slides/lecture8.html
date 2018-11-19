@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 8</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Introduction to Probability Models</h2>
+					<p>Lecture 8</p>
+					<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+					<p><small>Sep 7, 2018</small></p>
+				</section>
+
+        <section data-transition="zoom" style="text-align: left;">
+				<h2>Reminders</h2>
+				<ol>
+					<li>The first homework is due <b>NOW</b></li>
+					<li>The second quiz will be on this <b>Wednesday(Sep 12)</b></li>
+				</ol>
+			</section>
+
+				<section data-transition="slide" data-background="#000000" data-background-transition="zoom">
+				 <h2>BASIC COUNTING RULES</h2>
+				</section>
+
+				<section data-transition="zoom" style="text-align: left;">
+					<h3>Basic Counting Rules</h3>
+					<p algin="left">
+						If there are a ways of doing something and b ways of doing another thing,
+						then there are a · b ways of performing both actions.</br >
+             <img data-src="../image/bcr.png" width="450px">
+					</p>
+
+				</section>
+
+			<section data-transition="zoom" style="text-align: left;">
+					<h3>Example 1</h3>
+					<p align="left">Assuming Mary has 6 pairs of shoes, 10 different tops,
+						8 different bottoms and 4 different jackets.
+						<ol>
+							<li>How many different outfits can she wear?</li>
+							<li>Mary has a job interview and she wants to decide what to wear.
+								Of all her clothes, Mary  has 2 pairs of shoes, 3 tops, 2 bottoms
+								and 2 jackets that are appropriate for an interview.
+								She randomly picks what to wear for the interview among
+								all her possible outfits, what is the probability that s
+								he wears an interview-appropriate outfit?</li>
+						</ol>
+					 </p>
+				</section>
+
+			 <section data-transition="zoom" style="text-align: left;">
+					<h3>Example 2</h3>
+					<font size="6">
+					<p align="left">
+						lllinois license plates consist of 4 digits followed by 2 letters.
+						Whereas, in Ohio, license plates start with 3 letters and end with 4 digits.
+						Assume all letters are upper case.(note: the license plate scheme described may not
+						reflect the current Illinois or Ohio license plates)
+						<ol>
+							<li>For each state, how many possible license plates are there?</li>
+							<li>How many possible license plates are there for each state with no digit or letter repeating?</li>
+							<li>How many possible license plates are there with at least 1 vowel?</li>
+							<li>How many possible license plates are there with at least one vowel or at least one 3?  </li>
+							<li>What is the probability that the license plate will have at least one vowel?</li>
+							</ol>
+					</p>
+				</font>
+				</section>
+
+				<section data-transition="slide" data-background="#000000" data-background-transition="zoom">
+				 <h2>Permutation</h2>
+				</section>
+
+				<section data-transition="zoom" style="text-align: left;">
+					<h2>Two concepts</h2>
+					<p>
+						<ul>
+							<li>Factorial Notation: $k!$ means multiple the positive integer $k$
+								by $k - 1, k-2, \cdots, $ until 1
+								\begin{align}
+								k! =& k\times (k-1) \times \cdots \times 2 \times 1 \\
+								6! =& 6 \times 5 \times 4 \times 3 \times 2 \times 1 = 720
+								\end{align}
+	 				    </li>
+							<li>Permutation: Ordered arrangement of r distinct objects
+							from a set of n objects.
+							$$_nP_r =  P_r^n = \frac{n!}{(n - r)!}$$
+							$$_5P_2 = P_2^5 = \frac{5!}{(5 - 2)!} = \frac{5!}{3!} = 20$$
+						</li>
+						</ul>
+					</p>
+				</section>
+
+				<section data-transition="zoom" style="text-align: left;">
+					<h3>Example 3</h3>
+					<font size="5">
+					<p align="left">
+						Suppose Krannert only allows 5 spaces for a password to Portals.
+						Suppose further you are only allowed to use a number or a letter,
+						but the system is not case sensitive.
+						<ol>
+							<li>How many possible passwords are there? </li>
+							<li>What is the probability that you do not have a 9 in the first position?</li>
+							<li>What is the probability that all 5 spaces are odd numbers?  What if you cannot have a 9 in the first space?</li>
+							<li>What is the probability that a password does not repeat any characters?</li>
+							<li>What is the probability that the first space is a letter?</li>
+							<li>What is the probability that the $4_{th}$ space is an even number?</li>
+							<li>What is the probability that the last two spaces are vowels, if repeats are allowed?
+								If repeats are not allowed?</li>
+							<li>What is the probability that the password has at least one letter?</li>
+						</ol>
+					</p>
+				</font>
+				</section>
+			</div>
+		</div>
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [{
+						src: '../reveal.js/lib/js/classList.js'
+					},
+					{
+						src: '../reveal.js/plugin/math/math.js',
+						async: true
+					},
+					{
+						src: '../reveal.js/plugin/markdown/marked.js'
+					},
+					{
+						src: '../reveal.js/plugin/markdown/markdown.js'
+					},
+					{
+						src: '../reveal.js/plugin/notes/notes.js',
+						async: true
+					},
+					{
+						src: '../reveal.js/plugin/highlight/highlight.js',
+						async: true,
+						callback: function() {
+							hljs.initHighlightingOnLoad();
+						}
+					}
+				]
+			});
+		</script>
+		</body>
+
+		</html>

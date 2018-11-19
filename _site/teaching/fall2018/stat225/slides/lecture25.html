@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 25</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 25</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Oct 22, 2018</small></p>
+		</section>
+
+
+		<section data-transition="zoom" style="text-align: left;">
+					 <font size = "6">
+					 <h3>Example 1</h3>
+					 <p>
+					 At a high school track and field tournament, Mark’s high jumps vary evenly from 1.8 meters to 2.15 meters,
+						while Dan’s high jumps vary evenly from 1.75 to 2.3 meters.
+						 <ol>
+							 <li>Let M be the length of one of Mark’s high jumps. What are the distribution and parameter(s) of M?</li>
+							 <li>What is that the probability that Mark jumps between 1.88 and 2.05 meters?</li>
+							 <li>Which jumper’s jumps has the smaller standard deviation?</li>
+							 <li>What is the probability that one of Dan’s high jumps is exactly 2.0 meters?</li>
+							 <li>What length cuts off the highest 25% of Dan’s high jumps?</li>
+						 </ol>
+					 </p>
+				 </font>
+		 </section>
+
+		 <section data-transition="zoom" style="text-align: left;">
+		 	<font size = "5">
+		 	<h3>Exponential Random Variable</h3>
+		 	<ul>
+		 		<li><b>The definition of $X$ </b>: The waiting time until the first success</li>
+		 		<li><b>Support:</b> $X \in [0, +\infty)$ or $X \ge 0$</li>
+		 		<li><b>Parameter:</b> $\mu$, the average amount of time for one success</li>
+		 		<li><b>PDF:</b> $f_X(x) = \frac{1}{\mu} e^{-\frac{x}{\mu}}$, for $ x \ge 0$</li>
+		 		<li><b>CDF: </b>
+		 			\[
+		 			 F_X(x)= P(X \le x) = \left\{
+		 			 \begin{array}{ll}
+		 				0, x < 0\\
+		 				1 - e^{-\frac{x}{\mu}}, x \ge 0
+		 				\end{array}
+		 			 \right.
+		 			 \]
+		 		</li>
+		 		<li><b>Expected Value:</b> $E[X] = \mu$</li>
+		 		<li><b>Variance:</b> $Var(X) = \mu^2$</li>
+		 		<li><b>Notation:</b> $X \sim Exp(\mu)$ or $X \sim Exponential(\mu)$</li>
+		 	</ul>
+		 </font>
+		 </section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<h3>Important Properties for the Exponential Distribution</h3>
+				<p align="left">
+					If $X \sim Exp(\mu)$
+					<ul>
+						<li>Tail Probability formula: $P(X > x) = e^{-\frac{x}{\mu}}$</li>
+						<li>Memoryless Property: $P(X > s + t| X > s) = P(X > t)$</li>
+					</ul>
+				</p>
+		</section>
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Example 2</h3>
+			<p>It is your birthday and you are waiting for someone to write you a birthday message on Facebook.
+				On average (on your birthday) you receive a facebook message every 10 minutes.
+				Assume that birthday messages arrive independently. </p>
+			<ol>
+			<li>What is the probability the next posting takes 15 minutes or longer to appear?  What distribution, parameter(s) and support are you using?</li>
+			<li>What is the standard deviation of the time between birthday postings? </li>
+			<li>What is the probability that it takes 12.5 minutes for the next birthday posting? </li>
+			<li>Suppose that the most recent birthday posting was done at 1:40 pm and it is now 1:45 pm.
+				What is the probability that you will have to wait until 1:53 pm or later for the next message?</li>
+			<li>What is the probability that your wait time for the next three messages is less than 8 minutes?</li>
+			<li>What is your median waiting time for birthday messages?</li>
+			</ol>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Exponential Random Variable</h3>
+			<ul>
+				<li><b>The definition of $X$ </b>: The waiting time until the first success</li>
+				<li><b>Support:</b> $X \in [0, +\infty)$ or $X \ge 0$</li>
+				<li><b>Parameter:</b> $\lambda$, the number of success per time unit, $\lambda = \frac{1}{\mu}$</li>
+				<li><b>PDF:</b> $f_X(x) = \lambda e^{- \lambda x}$, for $ x \ge 0$</li>
+				<li><b>CDF: </b>
+					\[
+				   F_X(x)= P(X \le x) = \left\{
+				   \begin{array}{ll}
+					0, x < 0\\
+					1 - e^{-\lambda x}, x \ge 0
+					\end{array}
+				   \right.
+				   \]
+				</li>
+				<li><b>Expected Value:</b> $E[X] = \frac{1}{\lambda}$</li>
+				<li><b>Variance:</b> $Var(X) = \frac{1}{\lambda^2}$</li>
+				<li><b>Notation:</b> $X \sim Exp(\lambda)$ or $X \sim Exponential(\lambda)$</li>
+			</ul>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+					 <font size = "5">
+					 <h3>Example 3</h3>
+					 <p>
+					 You are teaching your new puppy to fetch a ball and are interested in the amount of
+					 time it takes for the puppy to run, get the ball and bring it back to you after you throw it.
+					 <ul>
+					 	<li>Scenario 1:  The average amount of time it takes is 30 seconds.</li>
+						<li>Scenario 2: The amount of time it takes is anywhere from 10 to 45 seconds.</li>
+					 </ul>
+						 <ol>
+							 <li>What is the distribution, parameter(s) and support for Scenario 1 and Scenario 2</li>
+							 <li>For each scenario, find the probability that it takes more than 22 seconds for the puppy to fetch the ball.  Less than 50 seconds??</li>
+							 <li>What is the probability that it will take the puppy less than 40 seconds to fetch the ball knowing that it took the puppy longer than 22 seconds</li>
+							 <li>Assuming independence, what is the probability that it takes the puppy less than 40 seconds to fetch each of the next 5 balls? </li>
+						 </ol>
+					 </p>
+				 </font>
+		 </section>
+
+	</div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>

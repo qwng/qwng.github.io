@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 35</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 35</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Nov 14, 2018</small></p>
+		</section>
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Example 1</h3>
+			<p>Heights of Pokémon are Normally Distributed with a mean of 59 inches and a standard deviation of 17 inches. </p>
+			<ol>
+			<li>What is the standardized height (z-score) for Blastoise, who is 63 inches tall?</li>
+			<li>Using the Normal Table, find the probability that any Pokémon is taller than Blastoise  </li>
+			<li>Knowing that a  Pokémon is taller than Blastoise, what is the probability that it is taller than 70 inches?</li>
+			<li>What height corresponds to the top 10% of Pokémon heights?</li>
+			</ol>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Normal Approximation to the Binomial</h3>
+			<p>If a Binomial distribution has a large enough combination of n and p, it behaves much like a Normal distribution, which means we can use the Normal distribution to approximate the original Binomial distribution</p>
+			<ul>
+				<li>If $X \sim Bin(n, p)$, and $np > 5, n(1 - p) > 5$</li>
+				<li>Then we can use $X^\star \sim N(\mu = np, \sigma = \sqrt{np(1-p)})$, to approximate $X$</li>
+			</ul>
+			<p>You may notice that Binomial is Discrete, and Normal is Continuous. This means the approximation comes at a cost of accuracy that we must try to correct. When we use the approximation, we need to perform a continuity correction:</p>
+			<ul>
+				<li>If you’re looking for: $P(a \le X \le b)$</li>
+				<li>Use $P(a - 0.5 < X^\star < b + 0.5)$</li>
+			</ul>
+
+		</font>
+		</section>
+
+		<section data-transition="slide" data-background="../image/quiz.png" data-background-transition="zoom">
+		 <h1><a href="https://www.google.com/search?q=countdown+timer">Time for Quiz</a></h1>
+		</section>
+
+		<section data-transition="slide" data-background="#000000" data-background-transition="zoom">
+		 <h2>Crosstabs Table/contingency table</h2>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Crosstabs Table/contingency table</h3>
+			<ul>
+				<li>Describes the relationship between two categorical variables.</li>
+				<li>Represents a table of counts (can include percentages).</li>
+			</ul>
+			<p>Examples</p>
+			<ul>
+				<li>Gender versus major</li>
+				<li>Political party versus voting status</li>
+			</ul>
+			<p>
+		Sometimes one or both variables are quantitative, but we classify them into categories for data collection and/or analysis. For example, suppose our variables are years of college education and income.
+		We decide to group years of education into four classes:  none, some college, Bachelor’s degree, and post-graduate. We also decide to classify annual income in dollars into four classes:  $<10,000, 10,000-30,000, 30,001-50,000,$ and $>50,000$.
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Example 2</h3>
+			<p>An instructor taught four sections of a large statistics course and had the following distribution of grades when the semester was finished.</p>
+			<table>
+				<thead>
+					<tr>
+						<th>Grade</th>
+						<th>One</th>
+						<th>Two</th>
+						<th>Three</th>
+						<th>Four</th>
+						<th>Total</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					<th>A</th>
+					<td>12</td>
+					<td>18</td>
+					<td>10</td>
+					<td>12</td>
+					<td>  </td>
+					</tr>
+					<tr>
+					<th>B</th>
+					<td>26</td>
+					<td>26</td>
+					<td>16</td>
+					<td>16</td>
+					<td>  </td>
+					</tr>
+					<tr>
+					<th>C</th>
+					<td>28</td>
+					<td>20</td>
+					<td>24</td>
+					<td>18</td>
+					<td>  </td>
+					</tr>
+					<tr>
+					<th>D</th>
+					<td>6</td>
+					<td>8</td>
+					<td>20</td>
+					<td>18</td>
+					<td>  </td>
+					</tr>
+					<tr>
+					<th>F</th>
+					<td>4</td>
+					<td>4</td>
+					<td>8</td>
+					<td>12</td>
+					<td>  </td>
+					</tr>
+					<tr>
+					<th>Total</th>
+					<td> </td>
+					<td> </td>
+					<td> </td>
+					<td> </td>
+					<td>  </td>
+					</tr>
+				</tbody>
+			</table>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Joint Distribution</h3>
+			<p>The <b>joint distribution</b> of the 2 categorical variables is the proportion of total cases in a cell
+				$$Joint Probability = \frac{Total In Cell}{Overall Total}$$
+				All the joint distributions should add to 1 (or 100%).
+				For example:  18/306 = 0.0588 or 5.88% is the joint distribution for people with grade of A AND Class time One.  Joint distributions use or imply “AND”. (i.e intersection)
+			</p>
+			<p>
+			Fill in the table of Joint distributions:
+			</p>
+			<table>
+				<thead>
+					<tr>
+						<th>Grade</th>
+						<th>One</th>
+						<th>Two</th>
+						<th>Three</th>
+						<th>Four</th>
+						<th>Total</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					<th>A</th>
+					<td> </td>
+					<td>5.88%</td>
+					<td> </td>
+					<td>3.92%</td>
+					<td>16.99%</td>
+					</tr>
+					<tr>
+					<th>B</th>
+					<td>8.50%</td>
+					<td>  </td>
+					<td>5.23%</td>
+					<td>5.23%</td>
+					<td>27.45%</td>
+					</tr>
+					<tr>
+					<th>C</th>
+					<td>9.15%</td>
+					<td>6.54%</td>
+					<td>7.84%</td>
+					<td>  </td>
+					<td>29.41</td>
+					</tr>
+					<tr>
+					<th>D</th>
+					<td> </td>
+					<td>2.61%</td>
+					<td>6.54%</td>
+					<td>5.88%</td>
+					<td>16.99%</td>
+					</tr>
+					<tr>
+					<th>F</th>
+					<td>1.31%</td>
+					<td>1.31%</td>
+					<td>2.61%</td>
+					<td> </td>
+					<td>9.15%</td>
+					</tr>
+					<tr>
+					<th>Total</th>
+					<td>24.84%</td>
+					<td>24.84%</td>
+					<td>25.49%</td>
+					<td>24.84%</td>
+					<td>100%</td>
+					</tr>
+				</tbody>
+			</table>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Marginal Distribution</h3>
+			<p>The <b>marginal distribution</b> allows us to study 1 variable at a time. The marginal distributions of each categorical variable are obtained from row and column totals.  Basically we are examining the distributions of a single variable in the two-way table.
+				 Marginal distributions allow us to compare the relative frequencies among the levels of a single categorical variable
+			<ol>
+				<li>The marginals for the row variable should add to 1 (or 100%). </li>
+				<li>The marginals for the column variable should add to 1 (or 100%)</li>
+			</ol>
+		</p>
+			<p>
+			Find the marginal distribution of Class Time for Example 2
+			<table>
+				<thead>
+					<tr>
+						<th>  </th>
+						<th>One</th>
+						<th>Two</th>
+						<th>Three</th>
+						<th>Four</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					<th>Counts</th>
+					<td> </td>
+					<td> </td>
+					<td> </td>
+					<td> </td>
+					</tr>
+					<tr>
+					<th>Percents</th>
+					<td> </td>
+					<td> </td>
+					<td> </td>
+					<td> </td>
+					</tr>
+				</tbody>
+			</table>
+						</p>
+						<p>
+						Find the marginal distribution of Letter Grade  for Example 2
+						<table>
+							<thead>
+								<tr>
+									<th>  </th>
+									<th>A</th>
+									<th>B</th>
+									<th>C</th>
+									<th>D</th>
+									<th>F</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+								<th>Counts</th>
+								<td> </td>
+								<td> </td>
+								<td> </td>
+								<td> </td>
+								<td> </td>
+								</tr>
+								<tr>
+								<th>Percents</th>
+								<td> </td>
+								<td> </td>
+								<td> </td>
+								<td> </td>
+								<td> </td>
+								</tr>
+							</tbody>
+						</table>
+									</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Conditional Distribution</h3>
+			<p>In <b>conditional distributions</b>, we find the distribution of one categorical variable given a common level of another categorical variable.  Look for key words to indicate a conditional—“given”, “knowing”, etc.
+		</p>
+			<p>
+			Find the conditional distribution of Letter Grade for Class Time One
+			<table>
+				<thead>
+					<tr>
+						<th>  </th>
+						<th>A</th>
+						<th>B</th>
+						<th>C</th>
+						<th>D</th>
+						<th>F</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					<th>Counts</th>
+					<td> </td>
+					<td> </td>
+					<td> </td>
+					<td> </td>
+					<td> </td>
+					</tr>
+					<tr>
+					<th>Percents</th>
+					<td> </td>
+					<td> </td>
+					<td> </td>
+					<td> </td>
+					<td> </td>
+					</tr>
+				</tbody>
+			</table>
+						</p>
+						<p>
+							Find the conditional distribution of Class Time for Letter Grade C.
+
+							<table>
+								<thead>
+									<tr>
+										<th>  </th>
+										<th>One</th>
+										<th>Two</th>
+										<th>Three</th>
+										<th>Four</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+									<th>Counts</th>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									</tr>
+									<tr>
+									<th>Percents</th>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									</tr>
+								</tbody>
+							</table>
+									</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Additional questions for Example 2</h3>
+			<ol>
+				<li>What percent of students in Class time Four earned a B?  Is this joint, conditional or marginal?</li>
+				<li>Of all students earning a B, what proportion were in Class time 4? Is this joint, conditional or marginal</li>
+				<li>What percent of students were enrolled in Class Time 3?  Is this joint, conditional or marginal?</li>
+				<li>What proportion of students earned B’s and were in Class time 2?  Is this joint, conditional or marginal?</li>
+			</ol>
+		</font>
+		</section>
+
+
+
+	</div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>

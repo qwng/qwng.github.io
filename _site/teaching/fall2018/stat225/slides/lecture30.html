@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 30</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 30</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Nov 2, 2018</small></p>
+		</section>
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>The Empirical Rule</h3>
+			<p> $X \sim N(\mu, \sigma)$</p>
+			<ul>
+			<li>Approximately 68% of the observations fall within $1 \sigma$ of the mean $\mu$
+				$$P(\mu - \sigma < X < \mu + \sigma) = 0.68$$
+			 </li>
+			<li>Approximately 95% of the observations fall within $2 \sigma$ of the mean $\mu$
+				$$P(\mu - 2\sigma < X < \mu + 2\sigma) = 0.95$$
+			</li>
+			<li>Approximately 99.7% of the observations fall within $3 \sigma$ of the mean $\mu$
+				$$P(\mu - 3\sigma < X < \mu + 3\sigma) = 0.997$$
+			</li>
+				</ul>
+				<img data-src="../image/emp_rule.png" width="400px" style="float: middle">
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Example 1</h3>
+			<p>Checking account balances, X, are approximately normal with a mean of 1500 dollars and a standard deviation of 50 dollars</p>
+			<ol>
+			<li>Between what numbers do 95% of the balances fall?</li>
+			<li>Above what number do 2.5% of the balances lie?</li>
+			<li>Approximately what % of balances are between 1400 dollars and 1550 dollars?</li>
+			<li>Approximately what % of the balances are less than 1450 dollars?</li>
+			</ol>
+		</font>
+		</section>
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>“Backwards” Normal Problems</h3>
+			<p>What if we know the probability and want to find the related z-score and the value in the original distribution? We will work the table backwards!</p>
+			<p>Steps to finding the sample score if you are given a probability and know $X \sim N(\mu, \sigma)$</p>
+			<ol>
+				<li>Set up your problem as follows $P(Z \le z_0) = probability$(Note: adjust $>$to $\le$ if necessary by using “1-probability”.) </li>
+				<li>Find the z-score by looking up the probability in the body of normal table</li>
+				<li>If you have a two-sided probability, use
+					$$P(-z_0 < Z \le z_0) = 2P(Z \le z_0) - 1 = 2 \Phi(z_0) - 1$$
+				</li>
+				<li>Convert the z-score to x using
+					$$z = \frac{x - \mu}{\sigma}$$
+				</li>
+			</ol>
+		</font>
+		</section>
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Example 2</h3>
+			<p>Find  for each of the following:</p>
+			<ol>
+			<li>$P(Z < z_0) = 0.5$</li>
+			<li>$P(Z < z_0) = 0.9846$</li>
+			<li>$P(Z < z_0) = 0.95$</li>
+			<li>$P(Z > z_0) = 0.512$</li>
+			<li>$P(-z_0 < Z < z_0) = 0.5$</li>
+			</ol>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Example 3</h3>
+			<p>If $X\sim N(\mu = 4, \sigma = 1.5)$, find $x_0$ for each of the following:</p>
+			<ol>
+			<li>$P(X < x_0) = 0.95$</li>
+			<li>$P(X < x_0) = 0.90$</li>
+			<li>$P(X > x_0) = 0.9236$</li>
+			<li>Find 2 values between which the center 30% of the data lies.</li>
+			</ol>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Example 4</h3>
+			<p>The weekly amount spent for maintenance and repairs at a certain company has an approximately normal distribution with a mean of 650 dollars
+				and a standard deviation of 35 dollars.  </p>
+			<ol>
+			<li>What is the probability that the company spends less than 675 dollars on maintenance and repairs in one week? </li>
+			<li>If 725 dollars is budgeted to cover the maintenance/repairs for next week, what is the probability that the actual cost will exceed the budgeted amount?  </li>
+			<li>For planning purposes, the company wants to know the range for the middle 60% of the distribution of weekly maintenance and repair costs.  Find the values that determine the middle 60% of the distribution of maintenance/repair costs. </li>
+			<li>What should the company expect their maintenance/repair costs to be for a year? .</li>
+			</ol>
+		</font>
+		</section>
+	</div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>

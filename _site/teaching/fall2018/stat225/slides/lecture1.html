@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 1</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 1</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Aug 20, 2018</small></p>
+		</section>
+
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>About the Instrcutor</h3>
+			<p>
+				<ul>
+					<li><b>Course Instructor:</b> Qi Wang(Pronounced as <i>Chee Waung)</i></li>
+					<li><b>Email:</b> qiwang@purdue.edu</li>
+					<li><b>Homepage:</b> http://www.stat.purdue.edu/~wang2047/</li>
+					<li><b>Office:</b> MATH G143</li>
+				</ul>
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="slide" data-background="#000000" data-background-transition="zoom">
+		 <h2>Syllabus</h2>
+		</section>
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			 <h3>Course Info</h3>
+			<p>
+				<ul>
+					<li><b>Textbook:</b> Introduction to Probability by Mark Daniel Ward and Ellen Gundlach, $1_{st}$ edition, W.H. Freeman</li>
+					<li><b>Course website: </b>
+						<ul>
+							<li>http://www.stat.purdue.edu/~cfurtner/stat225</li>
+							<li><b>user name:</b> stat225</li>
+							<li><b>password:</b> fall2018</li>
+						</ul>
+					</li>
+					<li><b>Session website</b>: http://www.stat.purdue.edu/~wang2047/teaching/fall2018/stat225
+					</li>
+				</ul>
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			 <h3>Grading</h3>
+			<p>
+				<table>
+					<tbody>
+						<tr>
+						<td>Homework</td>
+						<td>22.0%</td>
+						<td>125pts</td>
+					  </tr>
+						<tr>
+						<td>Quizzes</td>
+						<td>18.4%</td>
+						<td>105pts</td>
+					  </tr>
+						<tr>
+						<td>Exam 1</td>
+						<td>17.5%</td>
+						<td>100pts</td>
+					  </tr>
+						<tr>
+						<td>Exam 2</td>
+						<td>17.5%</td>
+						<td>100pts</td>
+					  </tr>
+						<tr>
+						<td>Final Exam</td>
+						<td>22.0%</td>
+						<td>125pts</td>
+					  </tr>
+						<tr>
+						<td>Class Participation</td>
+						<td>2.6%</td>
+						<td>15pts</td>
+					  </tr>
+						<tr>
+						<td><b>Total</b></td>
+						<td>100%</td>
+						<td>570pts</td>
+					  </tr>
+					</tbody>
+				</table>
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			 <h3>Grades</h3>
+			<p>
+				<ul>
+					<li>There will be <b>NO</b> curving of individual exam grades</li>
+					<li>A student must earn a minimum of 60% on AT LEAST ONE of the 3 exams in order to pass this class.</li>
+				</ul>
+			</p>
+		</font>
+		</section>
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			 <h3>Quiz</h3>
+			<p>
+				<ul>
+					<li>8 are scheduled</li>
+					<li>Close book and close notes</li>
+					<li>The lowest quiz will be dropped</li>
+					<li>Make-up quiz
+           <ul>
+           	<li>Official documented University business or a documented illness</li>
+						<li>Contact your instructor at least <b>TWO DAYS</b> in advance</li>
+           </ul>
+					</li>
+				</ul>
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			 <h3>Homework</h3>
+			<p>
+				<ul>
+					<li>5 assignments</li>
+					<li>Due at the <b>begining</b> of class</li>
+					<li>Late homework will <b>NOT</b> be accepted</li>
+					<li>Must be handwritten or typed using mathematical notation. </li>
+					<li>Each homework is worth 25 points, <b>NO</b> homeworks are dropped. </li>
+				</ul>
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			 <h3>Exams</h3>
+			<p>
+				<ul>
+					<li>Two evening exams from 8:00 -- 9:30 pm
+						<ul>
+							<li><b>Exam 1:</b> Tuesday, 9/25/2018</li>
+							<li><b>Exam 2:</b> Tuesday, 10/30/2018</li>
+						</ul>
+					</li>
+					<li>A final exam, during the day during final exam week</li>
+					<li>Close book and close notes</li>
+					<li>Items allowed
+						<ul>
+							<li>pencils</li>
+							<li>erasers</li>
+							<li>a scientific calculator (must not have capability to do integration)</li>
+							<li>one-page cheat sheet for mid-terms and two-page for the final</li>
+						</ul>
+					 </li>
+					<li>Show a photo ID to your instructor</li>
+				</ul>
+			</p>
+		</font>
+		</section>
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			 <h3>Cheat sheet</h3>
+			<p>
+				<ul>
+					<li>$8 \frac{1}{2} \times 11$</li>
+					<li>Handwritten in your own writing</li>
+					<li>Both sides</li>
+					<li>Handing in your cheat sheet at the end of the exam is required</li>
+					<li>Use of printed or photocopied material on a cheat sheet is prohibited and considered cheating in this course</li>
+				</ul>
+			</p>
+		</font>
+		</section>
+
+
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			 <h3>Emergency</h3>
+			<p>
+				<ul>
+					<li>If you hear a fire alarm inside, proceed outside</li>
+					<li>If you hear a siren outside, proceed inside</li>
+					<li>Fire emergency:
+						<ul>
+							<li>immediately suspend class, evacuate the building, and proceed outdoors</li>
+							<li>do not use the elevator</li>
+							<li>meet outside by fountain near John Purdue’s grave</li>
+						</ul>
+					</li>
+					<li>Tornado warning/servere weather event
+						<ul>
+							<li>suspend class and shelter in interior hallway on $1_{st}$ floor</li>
+						</ul>
+					</li>
+					<li>Shelter in place
+						<ul>
+							<li>suspend class and shelter in the classroom</li>
+							<li>shutting the door and turning off the lights</li>
+						</ul>
+					</li>
+				</ul>
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<ul>
+				<li>A gambler's dispute in 1654 led to the creation of a mathematical theory of probability by two famous French mathematicians, Blaise Pascal and Pierre de Fermat</li>
+				<img width="300" src="../image/blaise-pascal.jpg">
+				<img width="300" src="../image/pierre_de_fermat.jpg">
+				<li>The game consisted in throwing a pair of dice 24 times, the problem was to decide whether or not to bet even money on the occurrence of at least one "double six" during the 24 throws</li>
+			</ul>
+
+	</font>
+	 </section>
+
+
+		<section data-transition="slide" data-background="#000000" data-background-transition="zoom">
+		 <h2>Basic Terminology</h2>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			 <h3>Basic Terminology</h3>
+			<p>
+				This course is a course on Probability. The following terminology will assist us in the study of Probability.
+				<ul>
+          <li><b>Element:</b> a single item(outcome), typically denoted by $\omega$</li>
+					<li><b>Set:</b> a collection of elements
+						<ul>
+							<li>For example, $A = \{x, y, z\}$</li>
+							<li>$x \in A$, x is a memeber of set A</li>
+							<li>$j \notin B$, j is not a smember of set B</li>
+						</ul>
+					</li>
+					<li><b>Population:</b> the collection of all individuals or items under consideration</li>
+					<li><b>Random Experiment:</b> an action whose outcome cannot be predicted with certianty beforehand</li>
+					<li><b>Sample Space:</b> the set of all possible outcomes for a random experiment, typically denoted by $\Omega$, the textbook uses $S$</li>
+					<li><b>Event</b> a result that may or may not occur, a subset of $\Omega$</li>
+					<li><b>Subset:</b> a set in which every element is contained in another set
+						<ul>
+							<li>Notation: $A \subset B$, A is a subset of B</li>
+						</ul>
+					</li>
+					<li><b>Complement:</b> a set that contains all of the elements in $\Omega$ that aren't in the original set
+						<ul>
+							<li>Notation: $A^c$ is the complement of $A$</li>
+						</ul>
+					</li>
+					<li><b>Empty Set:</b> the set with no element in it, denoted by $\emptyset$ or $\{\}$</li>
+				</ul>
+			</p>
+		</font>
+		</section>
+
+
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			 <h3>Example 1</h3>
+			<p>
+			We check whether the Standard and Poor’s 500 Index at the end of the day shows an increase,
+			a decrease or remains the same as the previous days ending index.
+			<ol>
+				<li>For one day, what is the sample space for this scenario?</li>
+				<li>What is the sample space for two days?</li>
+				<li>Define event A:  the S & P decreases at least one day.  List the outcomes in A.</li>
+				<li>What are the outcomes in the complement of A?</li>
+				<li>What do you notice if we combine A and its complement? </li>
+			</ol>
+			</p>
+		</font>
+		</section>
+	</div>
+</div>
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>

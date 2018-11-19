@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 2</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 2</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Aug 22, 2018</small></p>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			 <h3>Example 1</h3>
+			<p>
+			Consider a standard deck of 52 playing cards. You will draw one card out of a thoroughly shuffled deck of cards.</br>
+			<img data-src="../image/poker.png" width="600px"></br>
+			Define the following events: H = the suit is a heart, R = the card is red, F = the card is a face card (i.e. Jack, Queen or King)
+			<ol>
+				<li>Determine which of these events are subsets of each other?</li>
+				<li>Are any of these sets complements of each other? Describe what would be in $H^c$? In $R^c$?</li>
+				<li>What are the chances that you will draw out a spade? A seven? A red jack?</li>
+			</ol>
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Probability</h3>
+			<p>
+				<ul>
+					<li>Probability: the chance or likelihood of a random event occuring</li>
+				</ul>
+			</br>
+
+				We determine probablity one of two ways:
+
+				<ul>
+					<li>Equally likely framework: know all possible outcomes and each outcomes is equally likely
+						$P(E) = \frac{\#OutcomesInEvent}{\#OutcomesInSampleSpace} = \frac{N(E)}{N(\Omega)}$
+					</li>
+					<li>Frequentist interpretation of probability: probability is the long run proportion of times event occurs in independent repetitions
+						of random experiment
+						$$P(E) = \frac{N(E)}{n}$$
+						$n$ is sample size and $n$ is large
+					</li>
+				</ul>
+			</br>
+				Which would apply to these?
+			</br>
+				<ul>
+					<li>Probability that a student is wearing blue jeans?</li>
+					<li>Probability that in a roll of a die you will get a 5?</li>
+					<li>Probability that it will snow in January?</li>
+				</ul>
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			 <h3>Probability Rules</h3>
+			<p>
+				<ol>
+					<li>Any probability must be between 0 and 1(inclusive), $0 \le p \le 1$</li>
+					<li>Sum of probability of all outcomes in $\Omega$ must equal to 1, $P(\Omega) = 1, \sum_{i=1}^n p_i = 1$</li>
+					<li>probability of event is the sum of probability of the specific outcomes in that event</li>
+				</ol>
+				<b>Legitimate: </b>If Rule 1 and Rule 2 are met, a probability model is legitimate</br>
+				<b>Question:</b> Is $A \subset B$, what can you say about their probabilities?
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			 <h3>Example 2</h3>
+			<p>
+				Your friend tells you the following probabilities for a weighted die.  You will roll the die one time.
+				<table>
+					<tbody>
+						<tr>
+						<td>Die Roll(X)</td>
+						<td>1</td>
+						<td>2</td>
+						<td>3</td>
+						<td>4</td>
+						<td>5</td>
+						<td>6</td>
+					  </tr>
+						<tr>
+						<td>Probability</td>
+						<td>0.5</td>
+						<td>0.1</td>
+						<td>0.1</td>
+						<td>0.1</td>
+						<td>0.1</td>
+						<td>0.1</td>
+					  </tr>
+					</tbody>
+				</table>
+				<ol>
+					<li>Is this a legitimate probability model?</li>
+					<li>What is the probability of rolling a 4 or higher?</li>
+					<li>What is the probability of rolling an even number?</li>
+				</ol>
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			 <h3>Example 3</h3>
+			<p>
+				A fair six-sided die is rolled twice</br>
+				<img data-src="../image/dice.png" width="400px"></br>
+				<ol>
+					<li>Write out the sample space using correct notation</li>
+					<li>Define the following events:
+						<ul>
+							<li>J = the two rolls are the same number; </li>
+							<li>K = the sum of the rolls is at least 4;</li>
+							<li>L = the sum of the rolls is 7.</li>
+						</ul>
+            FIND $P(J)$;  $P(K)$;  $P(L)$
+					</li>
+					<li>What is $P(K^c)$?</li>
+				</ol>
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			 <h3>Venn Diagrams</h3>
+			<p>
+				<ul>
+					<li><b>Venn Diagrams</b>: a diagram that shows all possible logical relations between a finite collection of different sets.
+						They are useful tools for visualizing probability models
+					</li>
+					<li><b>Intersection</b> of events A and B consists of those outcomes that are in <b>BOTH</b> event A and in event B, denoted by
+						$A\cap B$, $\cap = $ intersection
+					</br>
+					<img data-src="../image/intersection.png" width="200px"></br>
+					</li>
+					<li><b>Union</b> of events A and B consists of those outcomes that in either event A or in event B or in BOTH, denoted by
+            $A\cup B$, $\cup = $ union
+					</br>
+					<img data-src="../image/union.png" width="200px"></br>
+					</li>
+					<li>NOTE: both intersections and unions can be determined for 3 or more events.</li>
+				</ul>
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			 <h3>Example 3 Continued</h3>
+			<p>
+				<ul>
+					<li>Find $P(J\cap K)$; $P(J\cap L)$; $P(K \cap L)$</li>
+					<li>Find $P(J\cup K)$; $P(J\cup L)$; $P(K \cup L)$</li>
+					<li>Find $P(J\cap L^c )$.</li>
+				</ul>
+			</p>
+		</font>
+		</section>
+
+
+
+				<section data-transition="concave" style="text-align: left;">
+					<font size = "5">
+					 <h3>Definitions</h3>
+					<p>
+						<ul>
+							<li><b>Mutually Exclusive(disjoint):</b> $A\cap B = \emptyset$</li>
+							<li><b>Exhaustive:</b> $A \cup B = \Omega$</li>
+							<li> <b>Partition:</b>
+								<ul>
+									<li>$A\cap B = \emptyset$</li>
+									<li>$A \cup B = \Omega$</li>
+								</ul>
+							</li>
+
+						</ul>
+					</p>
+				</font>
+				</section>
+
+				<section data-transition="concave" style="text-align: left;">
+					<font size = "5">
+					 <h3>More Probability Law and Rules</h3>
+					<p>
+						<ul>
+							<li>$P(\Omega) = 1, P(\emptyset) = 0$</li>
+							<li>Associative Laws:
+								<ul>
+									<li>$A\cap (B\cap C) = (A\cap B)\cap C$</li>
+									<li>$A\cup (B\cup C) = (A\cup B)\cup C$</li>
+								</ul>
+							</li>
+							<li>
+								Commutative Laws:
+								<ul>
+									<li>$A \cap B = B \cap A$</li>
+									<li>$A \cup B = B \cup A$</li>
+								</ul>
+							</li>
+							<li>Distributive Laws:</li>
+							<ul>
+								<li>$A \cap (B\cap C) = (A\cap B) \cup (A \cap C)$ </li>
+								<li>$A \cup (B \cap C) = (A\cup B) \cap (A \cup C)$</li>
+							</ul>
+							<li>Complement Rule: $P(A^c) = 1 - P(A)$</li>
+							<li>General Additive Rule: $P(A\cup B) = P(A) + P(B) - P(A\cap B)$</li>
+						</ul>
+
+					</p>
+				</font>
+				</section>
+
+
+
+
+	</div>
+</div>
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>

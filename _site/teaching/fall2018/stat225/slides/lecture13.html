@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 13</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+
+
+	</head>
+
+  <body>
+		<div class="reveal">
+			<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 13</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Sep 19, 2018</small></p>
+		</section>
+
+		<section id="fragments" data-transition="concave" style="text-align: left;">
+			<h2>Revision</h2>
+			<font size="6">
+				<p>
+					<ul>
+						<li><b>Permutation: </b>Ordered arrangement of r distinct objects from a set of n objects. $$_nP_r = P_r^n = \frac{n!}{(n - r)!}$$</li>
+						<li><b>Combination:</b>Unordered arrangement of r distinct objects from a set of n objects. $$_nC_r = C_r^n = \frac{n!}{(n - r)! r!}$$</li>
+						<li><b>Multinomial Coefficient:</b>m objects are in k distinct groups, size of groups are $m_1, m_2, \cdots, m_k$, number of ways to order these are: $$\binom{m}{m_1, m_2, \cdots, m_k} = \frac{m!}{m_1!m_2!\cdots m_k!}$$</li>
+					</ul>
+				</p>
+			</font>
+		</section>
+
+		<section data-transition="slide" data-background="../image/quiz.png" data-background-transition="zoom">
+			<h1><a href="https://www.google.com/search?q=countdown+timer">Time for Quiz</a></h1>
+		</section>
+
+		<section id="fragments" data-transition="concave" style="text-align: left;">
+			<h2>Properties of Expected Value</h2>
+			<p align="left">
+				X, Y are random variables, c and d are constant
+
+				<ul align="left">
+					<li>$E[c] = c$</li>
+					<li>$E[cX] = cE[X]$</li>
+					<li>$E[X + Y] = E[X] + E[Y]$</li>
+					<li>$E[cX + dY] = cE[X] + dE[Y]$</li>
+				</ul>
+			</p>
+		</section>
+
+		<section id="fragments" data-transition="concave" style="text-align: left;">
+			<h2>Properties of Variance</h2>
+			<p align="left">
+				X, Y are random variables, c and d are constant
+				<ul>
+					<li>$Var(X) = E[(X - E[X])^2] = E[X^2]-E[X]^2$</li>
+					<li>$Var(c) = 0$</li>
+					<li>$Var(cX) = c^2 Var(X)$</li>
+					<li>If X and Y are independent, $Var(X + Y) = Var(X) + Var(Y)$</li>
+					<li>If X and Y are independent, $Var(cX + dY) = c^2Var(X) + d^2Var(Y)$</li>
+				</ul>
+			</p>
+		</section>
+
+
+
+		<section id="fragments" data-transition="concave" style="text-align: left;">
+			<h2>Example 1</h2>
+			<p align="left">
+				Suppose X and Y are random variables with $E[X] = 3, E[Y] = 4$ and $Var(X) = 2, Var(Y) = 1$. Find
+				<ol>
+					<li>$E[2X + 1]$</li>
+					<li>$E[X – Y] $</li>
+					<li>$E[X^2]$</li>
+					<li>$E[X^2 – 4]$</li>
+					<li>$E[(X – 4)^2]$ </li>
+					<li>$Var(2X – 4Y)$ </li>
+				</ol>
+			</p>
+		</section>
+	</div>
+</div>
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>

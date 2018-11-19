@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 21</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+    <div class="slides">
+  <section>
+      <h2>Introduction to Probability Models</h2>
+      <p>Lecture 22</p>
+      <p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+      <p><small>Oct 15, 2018</small></p>
+  </section>
+
+
+  <section data-transition="zoom" style="text-align: left;">
+      <h2>Continuous Random Variable</h2>
+      <p align="left">
+      <ul>
+    <li><b>Definition:</b>a random variable that can take on any value in a range.</li>
+    <li>For example:
+        <ul>
+      <li>Blood pressure</li>
+      <li>The height of a 8 year old</li>
+      <li>Mile per gallon of a car</li>
+      <li>GPA</li>
+        </ul>
+
+    </li>
+      </ul>
+      </p>
+  </section>
+
+  <section data-transition="zoom" style="text-align: left;">
+      <h2>Probability Mass Function Revisit </h2>
+      <p align="left">
+      <ul>
+    <li><b>Definition:</b>a function that gives the probability that a <strong>discrete</strong> random variable is exactly equal to some value.</li>
+    <li>For every x, $0 \le p_X(x) \le 1$</li>
+    <li>$\sum_x{p_X(x)} = 1$</li>
+    <li>For example, $X \sim Binomial(n = 4, p = 0.3)$, $P(X \le 2) = P_X(0) + P_X(1) + P_X(2)$</li>
+      </ul>
+      </p>
+  </section>
+
+
+  <section data-transition="zoom" style="text-align: left;">
+      <font size = "5">
+    <h2>Probability Density Function</h2>
+    <p>
+    In order to find probabilities of continuous random variables, we can no longer use a PMF, because the probabilities are no longer at points,
+    they are over regions. Instead we have a Probability Density Function, or PDF, $f_X(x)$, which looks more like a traditional function over a region.
+    If you are given a PDF, the probability can be calculated as:
+    $$P(X \le a) = \int_{-\infty}^{a} f_X(x) dx$$
+    <center><img src="../image/pdf.png" width="520"></center>
+    </p>
+      </font>
+  </section>
+
+  <section data-transition="zoom" style="text-align: left;">
+      <font size = "6">
+    <h3>Properties of a Continous PDF</h3>
+    <p>
+    If $f_X(x)$ is a probability density function(PDF), then
+    <ul>
+        <li>$f_X(x) \ge 0$ for all values of $X$ in its support</li>
+        <li>$ \int_{-\infty}^{\infty} f_X(x) dx = 1$</li>
+        <li>$P(X \le a) = \int_{\infty}^{a} f_X(x) dx$ </li>
+        <li>$P(a \le X \le b) = \int_{a}^{b} f_X(x) dx$ </li>
+    </ul>
+    </p>
+      </font>
+  </section>
+
+
+  <section data-transition="zoom" style="text-align: left;">
+      <font size = "6">
+    <h3>Example 1</h3>
+    <p>
+    Let $f_X(x) = 0.25 x$ for $1 \le x \le 3$ and $0$ otherwise
+    <ol>
+        <li>Make of graph of the PDF </li>
+        <li>Is $X$  more likely to be in the interval $[1, 2]$ or $[2, 3]$</li>
+    </ol>
+    </p>
+      </font>
+  </section>
+
+  <section data-transition="zoom" style="text-align: left;">
+      <font size = "5">
+    <h2>Cumulative Density Function</h2>
+    <p>
+    The cumulative distribution function F(x) for a continuous random variable X is defined for every number x by
+    $$F_X(x) = P(X \le x) = \int_{-\infty}^{x} f_X(t) dt$$
+
+    For each x, $F_(x)$ is the area under the density curve to the left of x.
+    <center><img src="../image/pdf.png" width="520"></center>
+    </p>
+      </font>
+  </section>
+
+  <section data-transition="zoom" style="text-align: left;">
+      <font size = "6">
+    <h3>Expected Value and Variance for a Continuous Random Variable</h3>
+    <p>X is a continuous random variable with PDF $f_X(x)$</p>
+    <ul>
+        <li><b>Expected Value:</b> $$E[X] = \int_{-\infty}^{+\infty} x f_X(x) dx$$</li>
+        <li><b>Variance:</b>
+      \begin{align}
+      Var(X) &= E[(E - E[X])^2] \\
+      & = E[X^2] - E[X]^2 \\
+      &= \int_{-\infty}^{+\infty} x^2f_X(x) dx - (\int_{-\infty}^{+\infty} xf_X(x) dx)^2
+      \end{align}</li>
+    </ul>
+      </font>
+  </section>
+
+  <section data-transition="zoom" style="text-align: left;">
+      <font size = "6">
+    <h3>Percentiles</h3>
+    <p>X is a continuous random variable with PDF $f_X(x)$ and CDF $F_X(x)$</p>
+    <ul>
+        <li><b>Definition:</b>$p_{th}$ percentile of X means a value k at which $P(X < k) = p\%$ or $F_X(k) = p\%$</li>
+        <li>For example, $10_{th}$ percentile of X means a value k at which $P(X < k) = 0.10$ or $F_X(k) = 0.10$</li>
+        <li>Quantile:
+      <ul>
+          <li>$1_{st}$ quantile: $25_{th}$ percentile</li>
+          <li>$2_{nd}$ quantile, Median: $50_{th}$ percentile</li>
+          <li>$3_{rd}$ quantile: $75_{th}$ percentile</li>
+      </ul>
+        </li>
+    </ul>
+      </font>
+  </section>
+
+
+
+
+  <section data-transition="zoom" style="text-align: left;">
+      <font size = "6">
+    <h3>Example 2</h3>
+    <p>
+    Let X represent the diameter in inches of a circular disk cut by a machine. Let $f_X(x) = c(4x - x^2)$ for $1 \le x \le 4$ and $0$ otherwise.
+    <ol>
+        <li>Find the value of c that makes this a valid PDF.</li>
+        <li>Find the expected value and variance of $X$</li>
+        <li>Find the CDF $F_X(x)$</li>
+        <li>Find the probability that X is within 0.5 inches of the average diameter.</li>
+        <li>What is the third quartile of X?</li>
+    </ol>
+    </p>
+      </font>
+  </section>
+
+  <section data-transition="zoom" style="text-align: left;">
+      <font size = "6">
+    <h3>Example 3</h3>
+    <p>
+    Suppose that a continuous random variable, X, has the probability density function (PDF) given below:
+    \[
+    f_X(x)=\left\{
+    \begin{array}{ll}
+    \frac{3}{2}x, 0 \le x \le 1\\
+    \frac{1}{4}, 5 \le x \le 6\\
+    0, otherwise
+    \end{array}
+    \right.
+    \]
+    <ol>
+        <li>What is the probability that $X$ is equal to 4?</li>
+        <li>What is the probability that $X$ is more than 4?</li>
+        <li>Find $F_X(5.6)$</li>
+        <li>Knowing that $X$ is more than $0.8$, what is the probability that $X$ is less than 5.6?</li>
+        <li>What is the $85_{th}$ percentile of $X$?</li>
+    </ol>
+    </p>
+      </font>
+  </section>
+
+    </div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+  dependencies: [{
+      src: '../reveal.js/lib/js/classList.js'
+  },
+      {
+    src: '../reveal.js/plugin/math/math.js',
+    async: true
+      },
+      {
+    src: '../reveal.js/plugin/markdown/marked.js'
+      },
+      {
+    src: '../reveal.js/plugin/markdown/markdown.js'
+      },
+      {
+    src: '../reveal.js/plugin/notes/notes.js',
+    async: true
+      },
+      {
+    src: '../reveal.js/plugin/highlight/highlight.js',
+    async: true,
+    callback: function() {
+        hljs.initHighlightingOnLoad();
+    }
+      }
+  ]
+    });
+</script>
+</body>
+
+</html>

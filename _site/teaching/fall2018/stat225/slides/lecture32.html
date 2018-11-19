@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 32</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 32</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Nov 7, 2018</small></p>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Probability VS Statistics  </h3>
+			<ul>
+			<li><u>Probability</u>is the science which studies likeliness of future event is based on the underlying model or population or process</li>
+			<li><u>Statistics</u> is the science of collecting, analyzing, presenting, and interpreting data</li>
+		</ul>
+		<img data-src="../image/statvsprob.png" width="600px" style="float: middle">
+		</font>
+		</section>
+
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Concepts</h3>
+			<ul>
+				<li><b>Dataset:</b>all the data collected in a particular study</li>
+				<li><b>Elements:</b>the individual entities of a data set</li>
+				<li><b>Variable:</b>a character of interest for the elements</li>
+				<li><b>Observation:</b>the set of measurements obtained for a particular element</li>
+			</ul>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Types of Variables</h3>
+			<ol>
+				<li>Qualitative Variable: has names or labels used to identify an attribute of an element, also called categorical.
+					Scale of measurement is
+					<ul>
+						<li>Nomial: ranking or order is meaningless (e.g. color)</li>
+						<li>Ordinal: inherent rank or order to the data (e.g. income categories)</li>
+					</ul>
+					<li>Quantitative Variable: has numeric values that indicates how much or how many of something.
+						Scale of measurement in
+						<ul>
+							<li>Interval: difference of quantities are meaningful, ratios of quantities cannot be compared (e.g. temperature in degrees Fahrenheit)</li>
+							<li>Ratio: ratios of quantities are meaningful (e.g. length) </li>
+						</ul>
+</li>
+</li>
+
+			</ol>
+		</font>
+		</section>
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Example 1</h3>
+			<p>The table shows a data set.</p>
+		<table>
+			<thead>
+				<tr>
+					<th>Year</th>
+					<th>Major</th>
+					<th>GPA</th>
+					<th>Total Credit Hours</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				<td>Sophomore</td>
+				<td>Psychology</td>
+				<td>3.14</td>
+				<td>42</td>
+			  </tr>
+				<tr>
+				<td>Senior</td>
+				<td>Accounting</td>
+				<td>3.45</td>
+				<td>105</td>
+			  </tr>
+				<tr>
+				<td>Senior</td>
+				<td>Philosophy</td>
+				<td>3.06</td>
+				<td>111</td>
+			  </tr>
+				<tr>
+				<td>Freshman</td>
+				<td>Statistics</td>
+				<td>2.89</td>
+				<td>17</td>
+			  </tr>
+				<tr>
+				<td>Sophomore</td>
+				<td>Spanish</td>
+				<td>3.25</td>
+				<td>38</td>
+			  </tr>
+				<tr>
+				<td>Junior</td>
+				<td>Accounting</td>
+				<td>2.95</td>
+				<td>79</td>
+			  </tr>
+			</tbody>
+		</table>
+			<ol>
+			<li>How many elements are in the data set?</li>
+			<li>How many variables are in the data set?</li>
+			<li>What is the $4_{th}$ observation in the data set?</li>
+			<li>What type of variable is each variable in the data set? </li>
+			</ol>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Example 2</h3>
+			<p>State the type of variable for each</p>
+			<ol>
+				<li>Smoking status </li>
+				<li>Income</li>
+				<li>IQ</li>
+				<li>Level of satisfaction</li>
+				<li>T-shirt size (S, M, L, XL) </li>
+				<li>Score on the Mathematics portion of the SAT</li>
+			</ol>
+		</font>
+		</section>
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Types of Data</h3>
+			<p>Based on how the data were collected</p>
+			<ul>
+			<li>Cross-sectional data: collected at the same point (or approximately the same point) in time</li>
+			<li>Time series data: collected over several time periods</li>
+		</ul>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Example 3</h3>
+			<p>State whether the data for variable is cross-sectional or time series.</p>
+			<ol>
+				<li>Current GPAs of Sophomore Management students</li>
+				<li>Your GPA during your time at Purdue</li>
+				<li>Daily closing price of a stock for month of March</li>
+				<li>Value of the stocks in the Dow Jones Industrial Average on March 31, 2016</li>
+				<li>Bushels of corn harvested in each of Indiana’s counties in 2015.</li>
+				<li>Score on the Mathematics portion of the SAT</li>
+			</ol>
+		</font>
+		</section>
+
+		<section data-transition="slide" data-background="#000000" data-background-transition="zoom">
+			<h2>Numerical Summaries</h2>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Measures of Center</h3>
+			<ul>
+			<li><b>Mean:</b> arithmetic average
+				$$\bar{x} = \frac{x_1 + x_2 + \cdots + x_n}{n} = \frac{1}{n}\sum_{i}^n x_i$$
+				Example: 1, 2, 2, 3, 4, 7, 9
+			</li>
+			<li>
+       <b>Mode:</b> most frequent value in a dataset
+			 Example: 2 is the mode in the previous example
+			</li>
+			<li>
+      <b>Median:</b> midpoint of the data such that half of the values are smaller and half of the values are larger.
+			</li>
+		</ul>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>How to Find a Median</h3>
+			<ol>
+				<li>Arrange the data in increasing order(from the smallest to the largest)</li>
+				<li>Count the number of observations, n.</li>
+				<li>If n is <b>odd</b>, median is the middle ordered value:
+					$M = (\frac{n + 1}{2})_{th}$ ordered value
+				  </li>
+					<li>If n is <b>even</b>, median is the average of two middle ordered value:
+						$M$ = average of $(\frac{n}{2})_{th}$ and $(\frac{n}{2} + 1)_{th}$ ordered value
+					</li>
+			</ol>
+		</font>
+		</section>
+
+	</div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 14</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 14</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Sep 21, 2018</small></p>
+		</section>
+
+		<section data-transition="concave">
+			<h2>Reminders</h2>
+			<ol>
+				<li>The second homework is due <b>NOW</b></li>
+			</ol>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<h2>Named Random Variables</h2>
+			<p align="left">
+				<ul>
+					<li>Bernoulli</li>
+					<li>Binomial</li>
+					<li>Hypergeometric</li>
+					<li>Poisson</li>
+					<li>Geometric</li>
+					<li>Negative Binomial</li>
+				</ul>
+			</p>
+
+		</section>
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<h2>Bernoulli Distribution</h2>
+			<ul>
+				<li>The probability distribution of a random variable which takes the value 1 with probability $p$ and the value 0 with probability $q=1-p$</li>
+				<li>The outcome is <b>YES or NO</b>, <b>SUCCESS or FAILURE</b>, <b>1 or 0</b> $\cdots$ </li>
+			</ul>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<h2>Bernoulli Distribution</h2>
+			<ul>
+				<li>$X \sim Bern(p)$</li>
+				<li><b>Support: </b>$\{0, 1\}$</li>
+				<li><b>Parameter: </b> p </li>
+				<li><b>PMF: </b>$P_X(x) = p^x (1-p)^{1-x}$</li>
+				<li><b>Expected Value: </b> $p$</li>
+				<li><b>Variance: </b>$p(1-p)$</li>
+			</ul>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<h2>Example 1</h2>
+			<p align="left">
+				In Eric’s STAT 225 class, 80% of the students passed on Exam 1. If we were to pick a student at random and asked them whether or not they passed, let X be the number of students who passed.
+				What type of random variable is this? How do you know? Additionally,
+				write down the pmf, the expected value, and the variance of X.
+			</p>
+
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+	  	<h2>Binomial Distribution</h2>
+			<ul>
+				<li>$X\sim Binomial(n, p)$</li>
+				<li>The total number of successes in a sequence of n independent Bernoulli experiments, with a success rate p</li>
+				<li><b>Support: </b>$\{0, 1, 2, \cdots, n\}$</li>
+				<li><b>Expected Value: </b>$np$</li>
+				<li><b>Variance: </b>$np(1-p)$</li>
+			</ul>
+	  </section>
+
+		<section data-transition="zoom" style="text-align: left;">
+     	<h2>Example 2</h2>
+			<p align="left">
+      Now pick 10 students from Eric’s class, with the same probability of having passed. Let X be the total number of students who passed.
+			What type of random variable is this? What values can X take? Please write down the pmf, the expected value, and the variance of X.
+			</p>
+     </section>
+
+		 <section data-transition="zoom" style="text-align: left;">
+     <h3>Relationship between Bernoulli Distribution and Binomial Distribution</h3>
+		 <p align="left">
+		 	<b>Theorem: </b>Let $X_1, X_2, \cdots, X_n$ be independent Bernoulli random variables, each with the same parameter p.
+			Then the sum $X= X_1 + X_2 + \cdots + X_n$ is a binomial random variable with parameters $n$ and $p$
+		 </p>
+
+		 </section>
+
+
+
+	</div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>

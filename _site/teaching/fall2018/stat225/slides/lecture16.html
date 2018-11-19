@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 16</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 16</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Sep 26, 2018</small></p>
+		</section>
+
+		<section data-transition="slide" data-background="#000000" data-background-transition="zoom">
+			<h2>Hypergeometric Distribution</h2>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Hypergeometric Distribution</h3>
+			<ul>
+				<li><b>The definition of $X$</b>: the number of success in $n$ trail without replacement from a finite population of size N that contains exactly M objects with that feature.</li>
+				<li><b>Support:</b> $\{0, 1, 2, \cdots, n\}$ or $\{0, 1, 2, \cdots, M\}$</li>
+				<li><b>Parameters:</b> </li>
+				<ul>
+					<li>$N:$ Population size</li>
+					<li>$M:$ Number of possible successes</li>
+					<li>$n:$ Number of trials</li>
+				</ul>
+				<li><b>PMF:</b> $P_X(x)=\frac{C_x^M C_{n-x}^{N - M}}{C_n^N}$</li>
+				<li><b>Expected Value:</b> $E[X] = n \frac{M}{N}$</li>
+				<li><b>Variance:</b> $Var(x) = n \frac{M}{N} (1 - \frac{M}{N}) \frac{N-n}{N-1}$</li>
+				<li>$X \sim Hyper(N, n, M)$</li>
+			</ul>
+		</font>
+		</section>
+
+		<section style="text-align: left;">
+			<font size = "6">
+			<h3>Example 1</h3>
+			<p>
+				There are 100 identical looking 52" TVs at Best Buy in Costa Mesa, California. Let 10 of them be defective. Suppose you want to buy 8 of the aforementioned TVs (at random).
+        <ol>
+        	<li>What is the probability that you don't get any defective TVs?  Identify the distribution parameters and support.</li>
+        	<li>Given that we purchase at least one defective TV, what is the probability that you purchase fewer than 3 defective TVs?</li>
+        	<li>What is the expected number of defective TVs that you will purchase?</li>
+        	<li>Find the standard deviation of the number of defective TVs that you purchase.</li>
+        </ol>
+			</p>
+		</font>
+		</section>
+
+		<section style="text-align: left;">
+			<font size = "6">
+			<h3>Example 2</h3>
+			<p>
+				An experiment consists of shuffling a standard deck of 52 cards and then dealing a 5 card hand.   Let Y denote the number of diamonds in the hand.
+				<ol>
+					<li>Identify the distribution of Y and give its parameter(s) and support. Find the probability that Y is 2.</li>
+					<li>Suppose instead of using 1 deck, we mix together 1,000 decks. The cards are shuffled and 5 are dealt into a hand. Let D denote the number of diamonds in the hand. Find the exact probability that you get 2 diamonds.</li>
+				</ol>
+			</p>
+		</font>
+		</section>
+
+
+		<section style="text-align: left;">
+			<font size = "6">
+			<h3>
+				The Binomial Approximation to the Hypergeometric
+			</h3>
+      <p>In probability, we can use some distributions to approximate others.</p>
+			<ul>
+				<li>If $X\sim Hyper(N, n, M)$ AND $N > 20n$, then $X \sim Bin(n, p = \frac{M}{N})$</li>
+				<li>With a large enough population, sampling without replacement will also get a Binomial.</li>
+				<li>So back to Example 2, is an approximate distribution appropriate for D, why or why not? </li>
+				<li>Use that approximation to find P(D = 2).  What is the distribution, parameter(s) and support for this approximating distribution?</li>
+			</ul>
+		</font>
+
+		</section>
+
+
+	</div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>

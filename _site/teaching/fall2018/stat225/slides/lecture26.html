@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 26</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 26</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Oct 24, 2018</small></p>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+				   <font size = "6">
+				   <h3>Example 1</h3>
+				   <p>
+				   Suppose that a continuous random variable, X, has the probability density function (PDF) given below:
+				   \[
+     f_X(x)=\left\{
+                 \begin{array}{ll}
+                   \frac{3}{2}x, 0 \le x \le 1\\
+                   \frac{1}{4}, 5 \le x \le 6\\
+                   0, otherwise
+                 \end{array}
+               \right.
+   \]
+					   <ol>
+						   <li>What is the probability that $X$ is equal to 4?</li>
+						   <li>What is the probability that $X$ is more than 4?</li>
+						   <li>Find $F_X(5.6)$</li>
+						   <li>Knowing that $X$ is more than $0.8$, what is the probability that $X$ is less than 5.6?</li>
+						   <li>What is the $85_{th}$ percentile of $X$?</li>
+					   </ol>
+				   </p>
+			   </font>
+	   </section>
+
+		<section data-transition="slide" data-background="../image/quiz.png" data-background-transition="zoom">
+			<h1><a href="https://www.google.com/search?q=countdown+timer">Time for Quiz</a></h1>
+		</section>
+	</div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>

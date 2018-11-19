@@ -93,20 +93,26 @@ social:
 
 # Analytics
 analytics:
-  provider               : false # false (default), "google", "google-universal", "custom"
+  provider               : "google-gtag" # false (default), "google", "google-universal", "custom"
   google:
-    tracking_id          :
-    anonymize_ip         : # true, false (default)
+    tracking_id          : "UA-129482631-1"
+    anonymize_ip         : false (default)
 
 
 # Site Author
 author:
   name             : "Qi Wang"
-  avatar           : "/assets/pics/qi3.jpg"
+  avatar           : "/assets/pics/qi5.png"
   bio              : "Ph.D. Candidate, STAT225 Instructor at Purdue University"
   location         : "West Lafayette, Indiana"
   email            : "qiwang@purdue.edu"
   links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/qwng"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/qi-wang-9231a783/"
   # - label: "Email"
   #   icon: "assets/pics/email.jpeg"
   #    url: "qiwang@purdue.edu" 
@@ -119,12 +125,6 @@ author:
    # - label: "Facebook"
    #   icon: "fab fa-fw fa-facebook-square"
       # url: "https://facebook.com/"
-  # - label: "GitHub"
-  #   icon: "assets/picts/github.png"
-  #    url: "https://qwng.github.com/"
-  # - label: "LinkedIn"
-  #   icon: "linkedin.png"
-  #    url: "https://www.linkedin.com/in/qi-wang-9231a783/"
 
 # Site Footer
 footer:
@@ -153,6 +153,7 @@ footer:
 include:
   - .htaccess
   - _pages
+  - _posts
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -216,7 +217,7 @@ sass:
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: America/Indiana/Indianapolis # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins (previously gems:)
@@ -285,7 +286,7 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: # true
+      comments:  true
       share: true
       related: true
 

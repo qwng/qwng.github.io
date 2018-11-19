@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+    <html>
+
+	<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	    <title>Introduction to Probability Models Lecture 19</title>
+
+	    <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	    <link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	    <!-- Theme used for syntax highlighting of code -->
+	    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	    <!-- Printing and PDF exports -->
+	    <script>
+		var link = document.createElement('link');
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+document.getElementsByTagName('head')[0].appendChild(link);
+	    </script>
+	    <script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	    </script>
+
+
+	</head>
+
+	<body>
+	    <div class="reveal">
+		<div class="slides">
+
+		    <section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 19</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Oct 3, 2018</small></p>
+		    </section>
+
+		    <section data-transition="zoom" style="text-align: left;">
+			<h2>Named Random Variables</h2>
+			<p align="left">
+			<ul>
+			    <li>Bernoulli</li>
+			    <li>Binomial</li>
+			    <li>Hypergeometric</li>
+			    <li>Poisson</li>
+			    <li><strike>Geometric</strike></li>
+			</ul>
+			</p>
+		    </section>
+
+		    <section data-transition="zoom" style="text-align: left;">
+			<h2>Bernoulli Distribution</h2>
+			<ul>
+			    <li>$X \sim Bern(p)$</li>
+			    <li><b>The definition of $X$</b>: the success of some event on a single trial.</li>
+			    <li><b>Support: </b>$\{0, 1\}$</li>
+			    <li><b>Parameter: </b> p </li>
+			    <li><b>PMF: </b>$P_X(x) = p^x (1-p)^{1-x}$</li>
+			    <li><b>Expected Value: </b> $E[X] = p$</li>
+			    <li><b>Variance: </b>$Var(X) = p(1-p)$</li>
+			</ul>
+		    </section>
+
+		    <section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			    <h2>Binomial Distribution</h2>
+			    <ul>
+				<li>$X\sim Binomial(n, p)$</li>
+				<li><b>The definition of $X$</b>: the total number of successes in a sequence of n independent Bernoulli experiments, with a success rate p</li>
+				<li><b>Support: </b>$\{0, 1, 2, \cdots, n\}$</li>
+				<li><b>Parameter: </b> n, p </li>
+				<li><b>PMF: </b>$P_X(x) = C_x^n p^x (1-p)^{n-x}$</li>
+				<li><b>Expected Value: </b>$E[X] = np$</li>
+				<li><b>Variance: </b>$Var(X) = np(1-p)$</li>
+			    </ul>
+			</font>
+		    </section>
+
+		    <section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			    <h3>Hypergeometric Distribution</h3>
+			    <ul>
+				<li>$X \sim Hyper(N, n, M)$</li>
+				<li><b>The definition of $X$</b>: the number of success in $n$ trail without replacement from a finite population of size N that contains exactly M objects with that feature.</li>
+				<li><b>Support:</b> $\{0, 1, 2, \cdots, n\}$ or $\{0, 1, 2, \cdots, M\}$</li>
+				<li><b>Parameters:</b> </li>
+				<ul>
+				    <li>$N:$ Population size</li>
+				    <li>$M:$ Number of possible successes</li>
+				    <li>$n:$ Number of trials</li>
+				</ul>
+				<li><b>PMF:</b> $P_X(x) = \frac{C_x^M C_{n-x}^{N - M}}{C_n^N}$</li>
+				<li><b>Expected Value:</b> $E[X] = n \frac{M}{N}$</li>
+				<li><b>Variance:</b> $Var(X) = n \frac{M}{N} (1 - \frac{M}{N}) \frac{N-n}{N-1}$</li>
+			    </ul>
+			</font>
+		    </section>
+
+
+		    <section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			    <h3>Poisson Distribution</h3>
+			    <ul>
+				<li>$X \sim Poisson(\lambda)$</li>
+				<li><b>The definition of $X$</b>: the number of success per $\underline{\hspace{1cm}}$, and $\underline{\hspace{1cm}}$ can be time, length, space unit and so on</li>
+				<li><b>Support:</b> $\{0, 1, 2, \cdots\}$</li>
+				<li><b>Parameters:</b> $\lambda$, the average success rate per $\underline{\hspace{1cm}}$</li>
+				<li><b>PMF:</b> $P_X(x) = \frac{e^{-\lambda} \lambda^x}{x!}$</li>
+				<li><b>Expected Value:</b> $E[X] = \lambda$</li>
+				<li><b>Variance:</b> $Var(X) = \lambda$</li>
+			    </ul>
+			</font>
+		    </section>
+
+		    <section data-transition="slide" data-background="../image/quiz.png" data-background-transition="zoom">
+			<h1><a href="https://www.google.com/search?q=countdown+timer">Time for Quiz</a></h1>
+		    </section>
+
+
+		    <section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			    <h3>Example 1</h3>
+			    <p>
+			    In a recent year, the Wall Street Journal, reported that 58% of all American credit card holders had to pay a late fee.
+			    A random sample of 15 American credit card holders is selected.  Let X be the number of credit card holders in the sample
+			    who had to pay a late fee. Assume that all credit card holders are independent of one another.
+			    <ol>
+				<li>State the distribution and parameter(s) for X.  What is the support for X?  </li>
+				<li>What is the average and standard deviation of X? </li>
+				<li>What is the probability that exactly 8 people in the sample had to pay a late fee? </li>
+				<li>Given that at least one person in the sample had to pay a late fee, what is probability that 8 or 9 had to pay a late fee?</li>
+			    </ol>
+			    </p>
+			</font>
+		    </section>
+
+
+
+		    <section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			    <h3>Example 2</h3>
+			    <p>
+			    A college student is running late for his class and does not have time to pack his backpack carefully.
+			    He has 12 folders on his desk, 4 include HW assignments due today. He grabs 3 of the folders randomly and
+			    when he gets to class, counts the number of them that contain HW.
+			    <ol>
+				<li>What is the random variable here? What are the parameters? </li>
+				<li>What is the expected number of folders with HW in them? What is the variance of X? </li>
+				<li>What is the probability that 2 folders contain HW? </li>
+				<li>What is the probability that fewer than 2 folders contain HW?</li>
+			    </ol>
+			    </p>
+			</font>
+		    </section>
+
+		    <section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			    <h3>Example 3</h3>
+			    <p>
+			    Courtney is running downtown and passes a gas station at a rate of once per 2.5 minutes (this is an average of 0.4 gas stations a minute). Let G be the number of gas stations Courtney passes during her thirty minute run.
+			    <ol>
+				<li>What is the support, distribution and parameter(s) of G?</li>
+				<li>What is the probability Courtney passes 10 gas stations on her run?</li>
+				<li>Courtney decides that to provide motivation, at the end of the run she will eat half a cookie for every gas station she passed on the run. What is the expected number of cookies Courtney will eat after the run?</li>
+			    </ol>
+			    </p>
+			</font>
+		    </section>
+
+		</div>
+	    </div>
+	    <script src="../reveal.js/lib/js/head.min.js"></script>
+	    <script src="../reveal.js/js/reveal.js"></script>
+
+	    <script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+		    dependencies: [{
+			src: '../reveal.js/lib/js/classList.js'
+		    },
+			{
+			    src: '../reveal.js/plugin/math/math.js',
+			    async: true
+			},
+			{
+			    src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+			    src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+			    src: '../reveal.js/plugin/notes/notes.js',
+			    async: true
+			},
+			{
+			    src: '../reveal.js/plugin/highlight/highlight.js',
+			    async: true,
+			    callback: function() {
+				hljs.initHighlightingOnLoad();
+			    }
+			}
+		    ]
+		});
+	    </script>
+	</body>
+
+    </html>

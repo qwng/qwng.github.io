@@ -1,0 +1,19 @@
+# /_data/authors.yml
+
+Qi Wang:
+  name             : "Qi Wang"
+  bio              : "Ph.D. Candidate, STAT225 Instructor at Purdue University"
+  avatar           : "/assets/pics/qi5.png"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/qwng"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/qi-wang-9231a783/"
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "qiwang@purdue.edu" 
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://qwng.github.io"

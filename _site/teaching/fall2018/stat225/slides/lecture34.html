@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 34</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 34</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Nov 12, 2018</small></p>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>5 Number Summary</h3>
+			<p>5 Number Summary is consist of Minimum, $Q_1$, Median, $Q_3$, Maximum</p>
+			<h3>Example 1</h3>
+			<p>Here are Bob's last 20 golf scores, beginning with his last score:
+				$$69, 73, 77, 77, 80, 76, 75, 77, 78, 78, 77, 81,82, 75, 79, 76, 83, 77, 80, 84$$
+			Calculate the 5 number summary
+		</font>
+		</section>
+
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Boxplot</h3>
+			<p>Boxplot is a graphic depiction of the 5 number summary</p>
+			<ol>
+				<li>Draw a horizontal or vertical axis that is evenly spaced and well-labeled(make sure it covers the full range of the data)</li>
+				<li>Locate $Q_1$ and $Q_3$. There are the "ends" of your box. Draw the box.</li>
+				<li>With the box, locate the Median and mark it</li>
+				<li>Locate and mark the Minimum and Maximum. Extend a line("whisker") from each end of the box to the Max or Min</li>
+			</ol>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Modified Boxplot</h3>
+			<p>Step 1, 2, 3 are the same, BUT we indicate the outliers with a $o$ or a $\star$. Then draw the line from the ends of the box ot the highest or lowest data point that is NOT an outlier.
+			Most software generate boxplots are modified boxplots.</p>
+		</font>
+		</section>
+
+		<section data-transition="slide" data-background="../image/samplevspop.png" data-background-transition="zoom">
+			<h3><font color="red">Population VS. Sample</font></h3>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Definitions</h3>
+			<ul>
+			<li><b>Population</b> is the set of ALL elements of interest in a particular study</li>
+			<li><b>Census</b> is designed to collect data from the entire population</li>
+			<li><b>Sample</b> is a subset of the population.  We collect data from the sample to estimate and make inferences about the population.</li>
+			<li><b>Population parameter</b> are numerical measures of location, dispersion, shape, association that are computed FROM a POPULATION</li>
+			<li><b>Sample statistics</b> are numerical measures of location, dispersion, shape, association that are computed FROM a SAMPLE</li>
+			<li><b>Statistical inference</b> is the process of using data from a sample to make estimates, test hypotheses, or draw conclusions about the population characteristics. </li>
+		</ul>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Types of Sampling Methods </h3>
+			<ul>
+			<li>Non-random Sampling</li>
+			<ul>
+				<li><b>Voluntary response sample:</b> subjects select themselves to be in the sample group.  Generally, people with strong opinions (especially negative opinions) are most likely to respond.</li>
+				<li><b>Convenience sample:</b> subjects are selected based on the ease of collecting the sample.  </li>
+			</ul>
+			<li>Random Sampling</li>
+			<ul>
+				<li><b>Simple random sample:</b> also called SRS; is selected in such a way that every possible sample of size n has an equal probability of being chosen</li>
+				<li><b>Stratified random sample:</b> elements in the population are first divided into groups (i.e. strata) and then an SRS is taken from each group. </li>
+				<li><b>Cluster sample:</b> the elements in the population are first divided into separate groups called clusters and a simple random sample of clusters are chosen.  All the elements in the chosen cluster are then in the final sample.</li>
+				<li><b>Systematic sample:</b> the elements in the population are given a numeric identifier.  We randomly select one of the first k elements in the population.  Then we choose every kth element after that first one to be in the sample.  </li>
+			</ul>
+
+		</ul>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Randomization </h3>
+			<ul>
+				<li>How to Randomize? </br>
+						Usually done with software that utilizes a random number generator, or it can be done by hand with a random number table. Elements in the population are given a numeric identifier.
+				</li>
+				<li>Why randomize? </br>
+						As stated earlier, in order to fully represent the population so that we make valid conclustion about that population
+				</li>
+			</ul>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Bias and Variablility </h3>
+			<ul>
+			<li><b>Bias</b> concerns the center of the sampling distribution. Your result are biased if the statistic for your sampling distribution is not at the population parameter. Choosing a random sample will reduce bias</li>
+			<li><b>Variablility</b> describes how spread out the sampling distribution is for the statistic. This spread is determined by the sampling design and the sample size n. Larger sample size have smaller variabiation - the population size is not important to variation since your population size is fixed </li>
+		</ul>
+		</font>
+		</section>
+
+		<section data-transition="slide">
+			<img data-src="../image/biasvsvar.png" width="600px" style="float: middle">
+		</section>
+
+
+	</div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>

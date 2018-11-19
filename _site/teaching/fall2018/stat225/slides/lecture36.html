@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 36</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 36</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Nov 15, 2018</small></p>
+		</section>
+
+		<section data-transition="slide" data-background="#000000" data-background-transition="zoom">
+		 <h2>Graphs: Qualitative Data</h2>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Example 1</h3>
+			<p>
+				<ul>
+					<li><b>Frequency distribution</b> is the frequency or count of the occurrences within a particular category</li>
+					<li><b>Relative frequency distribution</b> is the proportion/percentage of the occurrences within a particular category</li>
+				</ul>
+				<table>
+					<thead>
+						<tr>
+							<th>Place of Purchase</th>
+							<th># of Students</th>
+							<th>% of Students</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+						<td>University/Follett’s Bookstore</td>
+						<td>106</td>
+						<td>53%</td>
+						</tr>
+						<tr>
+						<td>Amazon.com or Half.com</td>
+						<td>50</td>
+						<td>25%</td>
+						</tr>
+						<tr>
+						<td>Previous students</td>
+						<td>22</td>
+						<td>11%</td>
+						</tr>
+						<tr>
+						<td>Purchase e-book</td>
+						<td>22</td>
+						<td>11%</td>
+						</tr>
+					</tbody>
+				</table>
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Bar Graph </h3>
+			<p>
+				Typically with bar graphs, the y-axis represents the frequency (# of observations) in the categories.
+				Elements can give multiple answers or no answer.Pay attention to the axes.
+				<img data-src="../image/bar.png" width="600px" style="float: middle">
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Pie Chart </h3>
+			<p>
+				Pie Chart is circular graph in which the relative size of the “slice” represents the percents or proportion of responses in that category.
+				Percents must add to 100%.  Each element/subject is allowed to give only one answer.
+				<img data-src="../image/pie.png" width="600px" style="float: middle">
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="slide" data-background="#000000" data-background-transition="zoom">
+		 <h2>Graphs: Quantitative Data</h2>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Stemplot</h3>
+			<p><b>Stemplot or Stem-and-leaf plot</b> is a technique that orders quantitative data points and provides insight about the shape of the distribution.
+		To make a stem-and-leaf plot, the last digit of the number is the leaf and the rest of the number is the stem. Leaves are arrange in ascending order on the stem.  Additionally, any stem that is not used, but is within the range of the data, is kept in the plot.
+		 </p>
+			<img data-src="../image/stemplot.png" width="400px" style="float: middle">
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h2>Example 3</h2>
+			<p>DATA SET is: $1, 3, 5, 7, 12, 15, 17, 19, 21, 21, 21, 30, 33, 39,$ and $56$.
+		Create a stem-and-leaf plot of the data.
+		</p>
+
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Histogram</h3>
+			<p>
+				Histogram is used for large amount of data, displays a count (frequency distribution) or percent or relative frequency distribution (probabilities) QUANTITATIVE DATA ONLY!!!!
+				It is constructed by placing the class intervals on the horizontal axis and the frequencies, relative frequencies, or percent frequencies on the vertical axis. When making a histogram, you need to pick an adequate number of classes (or, equivalently, an appropriate width of the interval for each class).
+			</p>
+		</font>
+		</section>
+
+
+				<section data-transition="zoom" style="text-align: left;">
+					<font size = "5">
+					<h3>Symmetry and Skewness</h3>
+					<img data-src="../image/ss.png" width="600px" style="float: middle">
+				</font>
+				</section>
+
+				<section data-transition="slide" data-background="../image/skew.png" data-background-transition="zoom">
+					</section>
+
+					<section data-transition="zoom" style="text-align: left;">
+						<font size = "4">
+						<h3>When to use mean and when to use median</h3>
+						<p>Suppose there are 7 people eating in a diner.  We ask “what is their income/ salary?   Then Bill Gates walks into the diner and we add in his salary.</p>
+						<img data-src="../image/sallary.png" width="400px" style="float: middle"></p>
+
+						<p>
+						which measure is more representative of the group after Bill Gates arrives?
+						</p>
+
+						<ul>
+							<li>When data is sysmetric --want to use mean and standard deviation</li>
+							<li>When data is skewed or have outlier(s) --want to use 5 number summary (or median and IQR)</li>
+						</ul>
+						<p>
+						Since the median is relatively unchanged by a few very large or very small measurements in the data set,  we say that the median is resistant.
+		The mean is non-resistant.
+					</p>
+
+
+					</font>
+					</section>
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Dot Plot </h3>
+			<p>
+				Dot Plot is a graphical device that summarizes data by the number of dots above each data value on the horizontal axis.
+				</p>
+
+				<img data-src="../image/dot.png" width="600px" style="float: middle">
+
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Line Graph </h3>
+			<p>
+				Line Graph is a graphical device that summarizes time series data.Time/date is usually on the horizontal axis and the value of the measured variable on the vertical axis.   Look for upward or downward trends.  Look for seasonal patterns
+			</p>
+
+				<img data-src="../image/line.png" width="450px" style="float: middle">
+
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Scatterplot</h3>
+			<img data-src="../image/scatter.png" width="750px" style="float: middle">
+		</font>
+		</section>
+
+	
+
+		<section data-transition="slide" data-background="#000000" data-background-transition="zoom">
+		 <h2>Comparing Some of the Graphs</h2>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Histogram VS. Bar Graph</h3>
+			<p>
+				<img data-src="../image/hisvsbar.png" width="600px" style="float: middle">
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Histogram VS. Bar Graph</h3>
+			<p>
+				<img data-src="../image/hisvsbar2.png" width="600px" style="float: middle">
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Histogram VS. Stemplot</h3>
+			<p>
+				<img data-src="../image/hisvsstem.png" width="600px" style="float: middle">
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Histogram VS. Stemplot</h3>
+			<p>
+				<img data-src="../image/hisvsstem2.png" width="600px" style="float: middle">
+			</p>
+		</font>
+		</section>
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Example 2</h3>
+			<p>
+				What type of graph would be appropriate in order to answer the following questions?
+				<ul>
+					<li>What percentage of a household budget was spent on housing, utilities, food, insurance,
+	entertainment, transportation and other?</li>
+					 <li>What values represent the middle 50% of the data for miles per gallon (mpg) of a sample of  2008 Toyota Camrys?</li>
+					 <li>How did the daily closing price of one share of Intel Corporation (INTC) stock fluctuate in the First quarter of 2012?</li>
+					 <li>Are gas prices and daily high temperature related</li>
+					 <li>A poll of 300 Purdue University students was taken. How many students in the poll purchased food from each of the following restaurants in the past month: Jimmy Johns, Chipotle, Noodles, Buffalo Wild Wings and Panera?</li>
+				</ul>
+			</p>
+		</font>
+		</section>
+
+	</div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>

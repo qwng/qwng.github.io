@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 15</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 15</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Sep 24, 201</small></p>
+		</section>
+
+		<section data-transition="concave">
+			<h2>Reminders</h2>
+			<ul>
+				<li>The first exam will be at <b>CL50</b>(Class of 1950 Lecture Hall) from <b>8:00pm to 9:30pm on Tuesday, Sep 25</b></li>
+			</ul>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<h3>Concepts</h3>
+			<font size="6">
+			<p align="left">
+				<ul>
+					<li>Random Experiment:</li>
+					<li>Element</li>
+					<li><b>Event</b></li>
+					<ul>
+						<li>$\emptyset$</li>
+						<li>$S$ or $\Omega$</li>
+					</ul>
+					<li><b>Union $\cup$</b>:</li>
+					<li><b>Intersection $\cap$</b>:</li>
+					<li><b>DeMorgan's Law: </b></li>
+					<li><b>Mutually Exclusive, Exhaustive and Partition</b></li>
+				</ul>
+			</p>
+		</font>
+		</section>
+
+		<section>
+			<h3>Concepts</h3>
+			<font size="5">
+			<p align="left">
+				<ul>
+					<li><b>Conditional Probability:</b> if event $B$ has nonzero probability ($P(B) > 0$), $P(A|B) = \frac{P(A\cap B)}{P(B)}$</li>
+					<li><b>Multiplication Rule: </b>$P(A\cap B) =P(B) \times P(A|B)$ </li>
+					<li><b>General addition rule: </b></li>
+					<ul>
+						<li>$P(A\cup B) = P(A) + P(B) - P(A\cap B)$</li>
+						<li>$P(A\cup B \cup C)$</li>
+					</ul>
+					<li><b>Independence: </b></li>
+					<ul>
+						<li>\(P(A|B) = P(A)\)</li>
+						<li>\(P(B|A) = P(B)\)</li>
+						<li>\(P(A\cap B) = P(A)\times P(B)\)</li>
+						<li>Mutually exclusive events are NOT independent unless one of them has zero probability</li>
+						<li>Mutually Independent and Pairwise Independent</li>
+					</ul>
+					<li><b>Law of Total Probability:</b>$P(A) = \sum_{i = 1}^n P(A|B_i) \times P(B_i)$</li>
+					<li><b>Bayes Rule: </b> $P(B_i|A) = \frac{P(B_i\cap A)}{\sum_{i = 1}^n P(A|B_i) \times P(B_i)}$</li>
+				</ul>
+			</p>
+		</font>
+		</section>
+
+		<section>
+			<h3>Concepts</h3>
+			<font size="5">
+			<p align="left">
+				<ul>
+					<li><b>Basic Counting Rules</b></li>
+					<li><b>Permutation: </b>$_nP_r = P_r^n = \frac{n!}{(n - r)!}$</li>
+					<li><b>Combination: </b>$_nC_r = C_r^n = \frac{n!}{(n - r)! r!}$</li>
+					<li><b>Multinomial Coefficient: </b>$\binom{m}{m_1, m_2, \cdots, m_k} = \frac{m!}{m_1!m_2!\cdots m_k!}$</li>
+					<li>Random Variable
+						</li>
+							<li>Probability Mass Function</li>
+							<ol>
+								<li>For every x, $0 \le p_X(x) \le 1$</li>
+								<li>$\sum_x{p_X(x)} = 1$</li>
+							</ol>
+							<li><b>Expected Value: </b>$E[X] = \sum_x x \times p_X(x)$</li>
+							<ul>
+								<li>c is a constant, $E[cX] = cE[X]$</li>
+								<li>$E[X + Y] = E[X] + E[Y]$</li>
+							</ul>
+							<li><b>Variance: </b>$Var(X) = E[(X - E[X])^2] = E[X^2]-E[X]^2$</li>
+								</li>
+									<ul>
+										<li>$Var(cX) = c^2 Var(X)$</li>
+										<li>If X and Y are independent, $Var(X + Y) = Var(X) + Var(Y)$</li>
+									</ul>
+				</ul>
+			</p>
+		</font>
+		</section>
+
+		<section>
+			<h3>Two Diagrams</h3>
+			<ol>
+				<li>Venn Diagram</li>
+				<li>Tree Diagram</li>
+			</ol>
+		</section>
+
+		<section>
+			<h2>Examples</h2>
+			<p align="left">
+			<ul>
+				<li><a href="http://www.stat.purdue.edu/~cfurtner/stat225/Old%20Exams/Spring%202015%20Exam%201%20V1.pdf">Problem 10 in Sample Exam 1</a></li>
+				<li><a href="http://www.stat.purdue.edu/~cfurtner/stat225/Old%20Exams/Spring%202015%20Exam%201%20V1.pdf">Problem 11 in Sample Exam 1</a></li>
+				<li><a href="http://www.stat.purdue.edu/~cfurtner/stat225/Old%20Exams/STAT%20225%20Exam%201%20STUDY%20GUIDE.pdf">Problem 23 in Exam 1 Study Guide</a></li>
+			<ul>
+			</p>
+
+		</section>
+
+	</div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>

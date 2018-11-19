@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 20</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 20</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Oct 10, 2018</small></p>
+		</section>
+
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Geometric Distribution Revisit</h3>
+			<ul>
+                <li>$X \sim Geom(p)$</li>
+				<li><b>The definition of $X$ </b>: the number of trials to get the first success</li>
+				<li><b>Support:</b> $\{1, 2, \cdots\}$, NOTE: <b>NO ZERO!</b></li>
+				<li><b>Parameter:</b> $p$, the probability of success in one trial</li>
+				<li><b>PMF:</b> $P_X(x) = p(1-p)^{x - 1}$</li>
+				<li><b>Expected Value:</b> $E[X] = \frac{1}{p}$</li>
+				<li><b>Variance:</b> $Var(X) = \frac{1 - p}{p^2}$</li>
+                <li> Two import properties:
+                    <ul>
+                    <li>Tail Probability formula: $P(X > k) = (1 - p)^k$</li>
+                    <li>Memoryless Property: $P(X > s + t| X > s) = P(X > t)$ and $P(X < s + t| X > s) = P(X < t)$</li>
+                </ul>
+                </li>
+			</ul>
+		</font>
+		</section>
+
+        <section data-transition="slide" data-background="#000000" data-background-transition="zoom">
+			<h2>Negative Binomial Random Variable</h2>
+		</section>
+
+        <section data-transition="zoom" style="text-align: left;">
+            <font size = "6">
+            <h3>Negative Binomial Random Variable</h3>
+            <p>
+            <ul>
+                <li><b>The definition of $X$ </b>: the number of trials to get the $r_{th}$ success</li>
+                <li><b>Support:</b> $\{r, r + 1, r + 2, \cdots\}$</li>
+                <li><b>Parameter:</b>
+                    <ul>
+                        <li>$p$: the probability of success in one trial</li>
+                        <li>$r$: success of interest</li>
+                    </ul>
+                    </li>
+                <li><b>PMF:</b> $P_X(x) = C_{r-1}^{x-1}p^r(1-p)^{x - r}$</li>
+                <li><b>Expected Value:</b> $E[X] = \frac{r}{p}$</li>
+                <li><b>Variance:</b> $Var(X) = \frac{r(1 - p)}{p^2}$</li>
+                <li>$X \sim NegBin(r, p)$ or $X \sim NB(r, p)$</li>
+            </ul>
+            </p>
+        </font>
+        </section>
+
+
+		<section style="text-align: left;">
+			<font size = "6">
+			<h2>Example 1</h2>
+			<p>
+				Pat is required to sell candy bars to raise money for the $6_{th}$ grade field trip.
+                He will ask his neighbors to buy a candy bar.  There is a 40% chance of him selling
+                a candy bar to any neighbor that he asks.  He has to sell 5 candy bars in all.
+                (Note:  anyone purchasing will only buy ONE candy bar and the neighbors are independent of each other).
+				<ol>
+        	<li>What is the probability that he must ask 10 neighbors to sell all his candy bars?</li>
+        	<li>What is the probability that he asks fewer than 9 neighbors?</li>
+            <li>How many neighbors does he expect to ask in order to sell all his candy bars?</li>
+        </ol>
+			</p>
+		</font>
+		</section>
+
+		<section style="text-align: left;">
+			<font size = "6">
+			<h3>Example 2</h3>
+			<p>
+	         The Plattsville Pluggers are a minor league baseball team.
+             Suppose that their ability to win any one game is 42% and games are independent of one another.
+				<ol>
+					<li>What is the probability that it takes 14 games to get their $4_{th}$ win?</li>
+					<li>What is the expected value and standard deviation of the number of games to get their $4_{th}$ win?
+                        Their $25_{th}$ win? Their $1_{st}$ win?</li>
+					<li>Knowing that the Pluggers got their $49_{th}$ win with 5 games remaining in the season,
+                        what is the probability that they do NOT get 50 or more wins?</li>
+				</ol>
+			</p>
+		</font>
+		</section>
+
+        <section style="text-align: left;">
+			<font size = "6">
+			<h3>Relationship Between Geometric Distribution and Negative Binomial Distribution</h3>
+			<p>
+	         <ul>
+	             <li>Geometric a special case of the Negative Binomial when $r=1$</li>
+	             <li>$X_i \sim Geom(p), i = 1, 2, \cdots, r$, then $X = X_1 + X_2 + \cdots + X_r \sim NegBin(r, p)$</li>
+	             <li>$E[X] = E[X_1 + X_2 + \cdots + X_r] = E[X_1] + E[X_2] + \cdots + E[X_r] = \frac{r}{p}$</li>
+                 <li>$Var(X) = Var(X_1 + X_2 + \cdots + X_r) = Var(X_1) + \cdots + Var(X_r) = \frac{r(1 - p)}{p^2}$</li>
+	         </ul>
+			</p>
+		</font>
+		</section>
+
+
+		<section style="text-align: left;">
+			<font size = "5">
+			<h3>Example 3</h3>
+			<p>
+			The wonderful candy shop, Albanese Candy Outlet, makes chocolate chip cookies as part of their production line. Chocolate chips in the cookies are randomly and independently
+			distributed with an average of 12 chocolate chips per cookie. You and 9 of your friends decide to make a trip to Albanese Candy Outlet. 
+			Each of you buys one chocolate chip cookie.
+				<ol>
+					<li>What is the probability that your cookie contains between 10 and 15 chocolate chips
+					inclusive?  </li>
+				<li>What is the probability that 5 or 6 people in your group have cookies with between 10
+				and 15 chocolate chips inclusive? 
+				</li>
+				<li>While examining your cookies (one-by-one), what is the probability that it takes at
+				least 4 cookies to find the first one with between 10 and 15 chocolate chips inclusive?
+				</li>
+				<li>While examining your cookies (one-by-one), what is the probability that it takes at
+				least 4 cookies to find the first one with 12 or 13 chocolate chips?</li>
+				<li>Suppose you and your 9 friends were to go repeatedly to Albanese Candy Outlet. What
+				is the probability that it takes until your sixth trip so that 5 or 6 people in your group
+				have 12 or 13 chocolate chips in their cookie?</li>
+				</ol>
+			</p>
+		</font>
+		</section>
+
+	</div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>
