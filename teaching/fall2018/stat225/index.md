@@ -12,7 +12,7 @@ title: STAT225 Introduction to Probability Models
 - Course Instructuor: [**Qi Wang**](https://qwng.github.io/)
 - Email: **qiwang@purdue.edu**
 - Office: **MATH 541**
-- Office Hour: [**Hass Help Room**](/misc/office_hour_fall2018.pdf) or by appointment
+- Office Hour: [**Hass Help Room**](/teaching/fall2018/stat225/misc/office_hour_fall2018.pdf) or by appointment
 - Textbook: [**Introduction to Probability by Mark Daniel Ward and Ellen Gundlach, 1st edition, W.H. Freeman**](http://www.stat.purdue.edu/~mdw/book.html)
 - Course Coordinator: [**Ce-Ce Furtner**](http://www.stat.purdue.edu/people/faculty/cfurtner)
 - Course Website: [**STAT225**](http://www.stat.purdue.edu/~cfurtner/stat225)
