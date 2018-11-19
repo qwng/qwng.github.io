@@ -1,9 +1,9 @@
 # main links
 main:
-   - title: "About"
-     url: /about/
-  - title: "Education"
-     url: /education/
+  # - title: "About"
+  #   url: /about/
+  #- title: "Education"
+  #   url: /education/
    - title: "Teaching"
      url: /teaching/
   # - title: "Sitemap"
