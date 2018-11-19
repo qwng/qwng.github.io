@@ -1,9 +1,8 @@
 ---
+layout: single
 permalink: /teach/
 title: Teaching
 ---
-
-## Teaching
 
 - [STAT 225: Introduction to Probability](../teaching/fall2018/stat225)
 - STAT 225: Introduction to Probability, Spring 2018 

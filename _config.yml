@@ -105,11 +105,11 @@ author:
   avatar           : "/assets/pics/qi3.jpg"
   bio              : "Ph.D. Candidate, STAT225 Instructor at Purdue University"
   location         : "West Lafayette, Indiana"
-  email            :
+  email            : "qiwang@purdue.edu"
   links:
-    #- label: "Email"
-    #  icon: "assets/pics/email.jpeg"
-    #   url: "qiwang@purdue.edu" 
+  # - label: "Email"
+  #   icon: "assets/pics/email.jpeg"
+  #    url: "qiwang@purdue.edu" 
    # - label: "Website"
    #   icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
@@ -119,12 +119,12 @@ author:
    # - label: "Facebook"
    #   icon: "fab fa-fw fa-facebook-square"
       # url: "https://facebook.com/"
-   # - label: "GitHub"
-   #   icon: "assets/picts/github.png"
-   #    url: "https://qwng.github.com/"
-   # - label: "LinkedIn"
-   #   icon: "linkedin.png"
-   #    url: "https://www.linkedin.com/in/qi-wang-9231a783/"
+  # - label: "GitHub"
+  #   icon: "assets/picts/github.png"
+  #    url: "https://qwng.github.com/"
+  # - label: "LinkedIn"
+  #   icon: "linkedin.png"
+  #    url: "https://www.linkedin.com/in/qi-wang-9231a783/"
 
 # Site Footer
 footer:
@@ -184,7 +184,6 @@ keep_files:
   - .svn
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-include: ["_pages"]
 
 
 # Conversion
