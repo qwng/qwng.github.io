@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: course
 classes: wide
 author_profile: false
 title: STAT225 Introduction to Probability Models
