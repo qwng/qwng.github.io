@@ -5,7 +5,7 @@ permalink: /pub/
 title: Publication
 ---
 
-A full list also be found on my [Google Scholar Profile](https://scholar.google.com/citations?user=pkRzci8AAAAJ).
+A full list can also be found on my [Google Scholar Profile](https://scholar.google.com/citations?user=pkRzci8AAAAJ).
 
 ### 2018
 - [Guo, Tian, Sushant Mehan, Margaret W. Gitau, Qi Wang, Thomas Kuczek, and Dennis C. Flanagan. "Impact of number of realizations on the suitability of simulated weather data for hydrologic and environmental applications." Stochastic Environmental Research and Risk Assessment 32, no. 8 (2018): 2405-2421.](https://link.springer.com/article/10.1007/s00477-017-1498-5)
