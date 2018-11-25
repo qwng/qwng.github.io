@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 37</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 37</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Nov 26, 2018</small></p>
+		</section>
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Chi-Square($\chi^2$) Hypothesis test</h3>
+			<p>We want to know if there is a relationship between two qualitative (categorical) variables, if there is no relationship, then the two are considered independent.</p>
+			<p>We will use the crosstab table to test whether there is a relationship.   Returning to our example in previous lecture, suppose we wanted to do the following test:</p>
+			<ul>
+				<li>$H_0:$ there <b>is no</b> relationship between Letter Grades and Class Time </li>
+				<li>$H_a:$ There <b>is</b> a relationship between Letter Grades and Class Time</li>
+			</ul>
+			<p>Note $H_0$ is called the null hypothesis, $H_a$ is the alternative hypothesis</p>
+			<p>We are using the information in the crosstab table to determine whether the data supports the null or alternative hypothesis. We will conduct a hypothesis test!</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Chi-Square($\chi^2$) Hypothesis test</h3>
+			<ol>
+				<li>State the Null and Alternative hypothesis</li>
+				<li>Determine the confidence level and the significance level $\alpha$</li>
+				<li>Find the test statistic $\chi^2$</li>
+				<li>Determine the degrees of freedom needed to use the $\chi^2$ table</li>
+				<li>Find the $\chi^2$ critical value from the $\chi^2$ table.  Compare critical value from the table to the calculated $\chi^2$ value.</li>
+				<li>State the conclusion in terms of the problem</li>
+			</ol>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>State the Null and Alternative hypothesis.</h3>
+			<ul>
+				<li>$H_0:$ there <b>is no</b> relationship between the row and column variables</li>
+				<li>$H_a:$ There <b>is</b> a relationship between the row and column variables</li>
+			</ul>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Determine the confidence level and the significance level</h3>
+			<p>
+      $$\alpha = 1 - confidence level$$
+			Typical confidence levels are 90%, 95% and 99% so $\alpha$ is typically 0.10, 0.05, 0.01.
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Find the test statistic</h3>
+			<p>
+			To test the null hypothesis, compare observed cell counts with expected cell counts calculated under the assumption that the null hypothesis is true.
+			 The Chi-square statistic, $\chi^2$, is a measure of how far the observed counts in the two-way table are from the expected counts. The formula for the statistic is
+			 $$\chi^2 = \sum{\frac{(\textit{observed cell count} - \textit{expected cell count})^2}{\textit{expected cell count} }}$$
+			 $$\textit{expected cell count} = \frac{\textit{row total}\times \textit{column total}}{\textit{overall total}}$$
+			 $$\textit{observed cell count} = \textit{actual cell count}$$
+		We sum is over all cells in the table.   So to get the overall value of $\chi^2$, calculate each cell’s expected count and each cell’s partial  $\chi^2$.  Add all the partial $\chi^2$ values for the overall.
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Determine the degrees of freedom</h3>
+
+			$$ DF = (\#Rows – 1) \times (\#Columns – 1) $$
+
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Find critical value</h3>
+			<p>
+			<ul>
+				<li>If the table value $< \chi^2$  (from calculation) then REJECT $H_0$</li>
+				<li>If the table value $> \chi^2$  (from calculation) then DO NOT REJECT $H_0$</li>
+			</ul>
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>State the conclusion </h3>
+			<p>
+			<ul>
+				<li>If rejecting $H_0$: Evidence shows that there is a relationship between the row variable and the column variable. (or state that evidence shows the two are not independent)</li>
+				<li>If NOT rejecting $H_0$: Evidence FAILS TO SHOW that there is a relationship between row variable and column variable.  (or state that evidence shows that the two are independent.)</li>
+			</ul>
+		</p>
+
+			<p><b>IMPORTANT NOTE:</b> We NEVER Accept, and NEVER say Prove. There is always that chance that we are making the incorrect conclusion.  Also the decision to reject or not is ALWAYS in terms of the NULL Hypothesis.  (e.g. DO NOT say reject $H_a$)
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>When is it okay to perform a Chi-Square test?</h3>
+			<p>
+				This is considered checking the assumptions, very important to make this check!
+			<ul>
+				<li>If table is larger than $2 \times 2$: okay
+					<ul>
+						<li>If all cells have an EXPECTED count of at least 1 AND</li>
+						<li>less than 20% of cells have EXPECTED counts under 5</li>
+					</ul>
+				</li>
+				<li>If table is $2 \times 2$ (smallest crosstab table), all cells must have an EXPECTED count of 5 or more</li>
+			</ul>
+	   </p>
+		</font>
+		</section>
+
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "4.5">
+			<h3>Example 1</h3>
+		  <p>Psychological factors and social factors can influence the survival of patients with serious diseases. One study examined the relationship between survival of patients with coronary heart disease and pet ownership. Each of 92 patients was classified as having a pet or not by whether they survived for one year. The researchers suspected that having a pet might be connected to the patient status. Here are the data.</p>
+			<table>
+				<thead>
+					<tr>
+						<th>Patient status</th>
+						<th>NO</th>
+						<th>YES</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					<td>Alive</td>
+					<td>28</td>
+					<td>50</td>
+				  </tr>
+					<tr>
+					<td>Dead</td>
+					<td>11</td>
+					<td>3</td>
+					</tr>
+					<tr>
+					<td>Total</td>
+					<td>39</td>
+					<td>53</td>
+					</tr>
+				</tbody>
+			</table>
+			<ol>
+				<li>Assuming the patient is still alive, what is the probability that he owns a pet? Is this a joint, marginal or conditional probability?</li>
+				<li>What is the probability that a patient owns a pet and is still alive? Is this a joint, marginal or conditional probability?</li>
+				<li>What is the probability that a patient owns a pet? Is this a joint, marginal or conditional probability?</li>
+				<li>State the hypotheses for a χ^2 test for this problem, find the $\chi^2$ test statistic, its degrees of freedom and the $\chi^2$ value from the table.  State your conclusions in terms of the original problem.</li>
+			</ol>
+		</font>
+		</section>
+
+	</div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>
