@@ -60,4 +60,5 @@ title: STAT225 Introduction to Probability Models
 | [Lecture 35: Example and Quiz Day 7](/teaching/fall2018/stat225/slides/lecture35.html) | [pdf](/teaching/fall2018/stat225/slides/lecture35.pdf) |
 | [Lecture 36: Graphical Summaries](/teaching/fall2018/stat225/slides/lecture36.html) | [pdf](/teaching/fall2018/stat225/slides/lecture36.pdf) |
 | [Lecture 37: Chi-Square Analysis](/teaching/fall2018/stat225/slides/lecture37.html) | [pdf](/teaching/fall2018/stat225/slides/lecture37.pdf) |
+| [Lecture 38: Example and Quiz Day 8](/teaching/fall2018/stat225/slides/lecture38.html) | [pdf](/teaching/fall2018/stat225/slides/lecture38.pdf) |
 

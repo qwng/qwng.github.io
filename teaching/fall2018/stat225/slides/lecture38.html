@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 38</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 38</p>
+			<p><small><a href=http://www.stat.purdue.edu/~wang2047>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Nov 28, 2018</small></p>
+		</section>
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Revision</h3>
+			<ul>
+				<li>Five Number Summary: Min, Q1, Median, Q3, Max</li>
+				<li>Boxplot is a graphic depiction of the 5 number summary</li>
+				<li>IQR = Q3 - Q1</li>
+				<li>Outlier bound: $Q1 - 1.5 \times IQR, Q3 + 1.5 \times IQR$</li>
+			</ul>
+
+		</font>
+		</section>
+
+		<section data-transition="slide" data-background="../image/quiz.png" data-background-transition="zoom">
+		 <h1><a href="https://www.google.com/search?q=countdown+timer">Time for Quiz</a></h1>
+			</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Association/relationship </h3>
+			<ul>
+				<li>May be positive, negative or no association</li>
+				<li>Remember: <b>Associaton</b> or <b>correlation</b> is <b>NOT</b> the same thing as <b>causation</b>.
+					Just because two variables are associated doesn’t mean that a change in one variable causes a change in the other. </li>
+					<li>Two variables are <b>associated</b> (or <b>related)</b> if some values of one variable tend to occur more often with certain values of the second variable.  For example, both tend to be high or low together (positive association), or if one is high then the other is often low (negative association).  </li>
+			</ul>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Response variable</h3>
+			<ul>
+				<li>Y(plotted on the vertical axis)</li>
+				<li>Dependent variable </li>
+				<li>Measures an outcome of a study </li>
+			</ul>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Explanatory variable</h3>
+			<ul>
+				<li>X(plotted on the horizontal axis)</li>
+				<li>Independent variable</li>
+				<li>Explains or is related to changes in the response variable</li>
+			</ul>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Example 1</h3>
+			<p>Which is the explanatory variable and which is the response variable?
+				<ol>
+					<li>The amount of time spent studying for an exam and the grade on the exam</li>
+					<li>The weight in kilograms and the height in centimeters of a person.</li>
+					<li>Yield of corn in bushels per acre and the inches of rain in the growing season</li>
+				</ol>
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Scatterplot</h3>
+			<img data-src="../image/scatter.png" width="750px" style="float: middle">
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Scatterplot</h3>
+			<p>We often use <b>Scatterplots</b> to visually predict if there is a relationship between the quantitative variables.
+				<ul>
+					<li>Show the relationship between 2 quantitative variables measured on the same individuals/elements</li>
+					<li>Dots only—don’t connect them with a line or a curve </li>
+					<li>Form: Linear? Non-linear? No obvious pattern? </li>
+					<li>Direction: if linear----positive association, negative association</li>
+					<li>Strength: how closely do the points follow a clear form? Strong or weak or moderate? </li>
+					<li>Look for OUTLIERS!</li>
+				</ul>
+</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Strength of Association</h3>
+			<p>The strength of the relationship between two variables can be seen by how much variation, or scatter, there is around the main form.</p>
+			<img data-src="../image/strength.png" width="750px" style="float: middle">
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Correlation</h3>
+			<p>To better describe a linear relationship that we see in the scatterplot, we will look at <b>correlation</b>
+       <ul>
+       	<li><b>Correlation</b>: measures the direction and strength of the linear relationship between 2 quantitative variables. </li>
+				<li>$\rho$: Population correlation </li>
+				<li>$r$: Sample correlation</li>
+       </ul>
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Properties of Correlation</h3>
+			<p>
+			 <ul>
+				<li>$-1 \le \rho \le 1$</li>
+				<li>Sign is same as the slope of the best fit line</li>
+				<li>Both variables must be quantitative!</li>
+				<li>Must have a linear relationship, but which variable you call x and which you call y does not affect correlation</li>
+				<li>Correlation is the same even if you change the units of measurement</li>
+				<li>Outliers can affect correlation  (removing it will increase the correlation)</li>
+				<li>
+					Correlation strength:
+					<ul>
+						<li>$|\rho|=1$, perfect linear relationship (doesn’t happen with real data)</li>
+						<li>$0.8 \le |\rho| < 1$, strong, linear relationship</li>
+						<li>$0.5 \le |\rho| < 0.8$, moderate, linear relationship</li>
+						<li>$0 < |\rho| < 0.5$, weak, linear relationship</li>
+						<li>$\rho = 0$, no linear relationship (may be a random scatter or because there is some other non linear relationship)</li>
+					</ul>
+				</li>
+			 </ul>
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Correlation</h3>
+			<img data-src="../image/cor.png" width="500px" style="float: middle">
+		</font>
+		</section>
+
+
+
+
+	</div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>
