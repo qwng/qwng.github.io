@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 39</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 39</p>
+			<p><small><a href=http://qwng.github.io>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Nov 30, 2018</small></p>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3> Calculate Correlation </h3>
+			<ul>
+				<li>Population
+					<ul>
+						<li>Variance: $\sigma^2 = \frac{\sum_{i=1}^N(x_i -\mu)^2}{N}$</li>
+						<li>Covariance: $\sigma_{x, y} = \frac{\sum_{i=1}^N(x_i - \mu_x)(y_i - \mu_y)}{N}$</li>
+						<li>Correlation: $\rho_{x, y} = \frac{\sum_{i=1}^N (x_i - \mu_x)(y_i - \mu_y)}{\sqrt{\sum_{i=1}^N(x_i - \mu_x)^2}\sqrt{\sum_{i=1}^N(y_i - \mu_y)^2}}$</li>
+					</ul>
+				</li>
+				<li>Sample
+					<ul>
+					<li>Variance: $s^2 = \frac{\sum_{i = 1}^n(x_i - \bar{x})^2}{n - 1}$, SD: $s_x = \sqrt{\frac{\sum_{i = 1}^n(x_i - \bar{x})^2}{n - 1}}$ </li>
+					<li>Covariance: $s_{x, y} = \frac{\sum_{i=1}^n(x_i - \bar{x})(y_i - \bar{y})}{n - 1}$</li>
+					<li>Correlation: $r_{x, y} = \frac{\sum_{i=1}^N (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^N(x_i - \bar{x})^2}\sqrt{\sum_{i=1}^N(y_i - \bar{y})^2}}$</li>
+					<li>Sample correlation is often written as $r_{x, y} = \frac{s_{x, y}}{s_x s_y}$</li>
+				</ul>
+				</li>
+			</ul>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Example 1</h3>
+			<p>
+				You want to compare the airspeed velocity of unladen swallows by species.  Suppose you collect the following data on pairs of African and European swallows.
+				<table>
+					<thead>
+						<tr>
+							<th>African</th>
+							<th>European</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+						<td>18</td>
+						<td>21</td>
+					  </tr>
+						<tr>
+						<td>22</td>
+						<td>22</td>
+						</tr>
+						<tr>
+						<td>26</td>
+						<td>25</td>
+						</tr>
+						<tr>
+						<td>30</td>
+						<td>28</td>
+						</tr>
+					</tbody>
+				</table>
+				Calculate the means, variances, standard deviations of each.  Then calculate the covariance and the correlation between the two species.
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "4">
+			<h3>Least-Squares Regression</h3>
+			<p>
+				Can we do better than just a scatter plot and the correlation in describing how x and y are related? What if we want to predict y for other values of x?
+				Least-Squares Regression fits a straight line through the data points that will minimize the sum of the vertical distances of the data points from the line
+			</p>
+			<ul>
+				<li>Minimizes $\sum_i^n e_i^2$ </li>
+				<li>Equation of the line is: $\hat{y} = b_0 + b_1 x$</li>
+				<li><b>Slope</b> of the line is:$b_1$, where the slope measures the amount of change caused in the response variable when the explanatory variable is increased by one unit.</li>
+				<li><b>Intercept</b> of the line is:$b_0$, where the intercept is the value of the response variable when the explanatory variable = 0.  (i.e. value where line intersects the y-axis)</li>
+				<li>Used for Prediction:  using the line to find y-values corresponding to x-values that are within the range of your data x-values</li>
+				<li>Using values outside range of the collected data can lead to <b>extrapolation</b>  </li>
+				<li>Coefficient of Determination: Denoted by $r^2$, it gives the proportion of the variance of the response variable that is predicted by the explanatory variable. So when $r^2$ is high, close to 1 or 100%, you have explained most of the variability</li>
+				<li>Residuals: the difference between the observed value of the response variable ($y$) and the predicted value ($\hat{y}$):
+					residuals = observed y - predicted y, $$e = y - \hat{y}$$
+				</li>
+			</ul>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "3">
+			<h3>Example 2</h3>
+			<p>We want to examine whether the amount of rainfall per year increases or decreases corn bushel output. A sample of 10 observations was taken, and the amount of rainfall (in inches) was measured, as was the subsequent growth of corn.
+				<table>
+					<thead>
+						<tr>
+							<th>Amount of Rain</th>
+							<th>Bushels of Corn</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+						<td>3.03</td>
+						<td>80</td>
+					  </tr>
+						<tr>
+						<td>3.47</td>
+						<td>84</td>
+						</tr>
+						<tr>
+						<td>4.21</td>
+						<td>90</td>
+						</tr>
+						<tr>
+						<td>4.44</td>
+						<td>95</td>
+						</tr>
+						<tr>
+						<td>4.95</td>
+						<td>97</td>
+						</tr>
+						<tr>
+						<td>5.11</td>
+						<td>102</td>
+						</tr>
+						<tr>
+						<td>5.63</td>
+						<td>105</td>
+						</tr>
+						<tr>
+						<td>6.34</td>
+						<td>112</td>
+						</tr>
+						<tr>
+						<td>6.56</td>
+						<td>115</td>
+						</tr>
+						<tr>
+						<td>6.82</td>
+						<td>115</td>
+						</tr>
+					</tbody>
+				</table>
+				<img data-src="../image/corn.png" width="200px" style="float: middle">
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<p>
+				The regression line (also called the prediction line or trend line) is $\hat{y} = 50.832+9.625x$ with $r^2 = 0.8693$ On the rain/corn data above, predict the corn yield for
+				<ol>
+					<li>5 inches of rain</li>
+					<li>6.56 inches of rain</li>
+					<li>0 inches of rain</li>
+					<li>100 inches of rain</li>
+					<li>For which amounts of rainfall above do you think the line does a good job of predicting actual corn yield? Why? </li>
+					<li>What percentages of the variation in corn yield is explained by the relationship with amount of rain? </li>
+					<li>Calculate the residual when the amount of rain is 6.56 inches</li>
+				</ol>
+			</p>
+		</font>
+		</section>
+
+
+	</div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>
