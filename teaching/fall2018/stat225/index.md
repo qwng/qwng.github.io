@@ -62,4 +62,5 @@ title: STAT225 Introduction to Probability Models
 | [Lecture 37: Chi-Square Analysis](/teaching/fall2018/stat225/slides/lecture37.html) | [pdf](/teaching/fall2018/stat225/slides/lecture37.pdf) |
 | [Lecture 38: Example and Quiz Day 8](/teaching/fall2018/stat225/slides/lecture38.html) | [pdf](/teaching/fall2018/stat225/slides/lecture38.pdf) |
 | [Lecture 39: More on Regression, Correlation](/teaching/fall2018/stat225/slides/lecture39.html) | [pdf](/teaching/fall2018/stat225/slides/lecture39.pdf) |
+| [Lecture 40: Regression Examples](/teaching/fall2018/stat225/slides/lecture40.html) | [pdf](/teaching/fall2018/stat225/slides/lecture40.pdf) |
 
