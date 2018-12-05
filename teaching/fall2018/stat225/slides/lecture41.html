@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to Probability Models Lecture 41</title>
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+</head>
+</body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Introduction to Probability Models</h2>
+			<p>Lecture 41</p>
+			<p><small><a href=http://qwng.github.io>Qi Wang</a>, Department of Statistics</small></p>
+			<p><small>Dec 5, 2018</small></p>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "6">
+			<h3>Reminders</h3>
+			<p>
+				<ul>
+					<li>The final exam will be from <b>10:30am to 12:30pm, Dec 12, 2018</b> in <b>CL50</b></li>
+			</p>
+		</font>
+		</section>
+
+
+
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			<h3>Final Exam </h3>
+			<p>
+				<ul>
+					<li>Cumulative, about 70% will be on the material covered after Exam2</li>
+					<li>2-Hour Exam, 125 points</li>
+					<li>
+						You are allowed the following aids
+						<ul>
+							<li>2 one-page 8.5” x 11” HANDWRITTEN cheat sheets</li>
+							<li>Scientific (non-graphing) calculator (in accordance with the syllabus)</li>
+							<li>Pencils, pens, erasers</li>
+						</ul>
+					</li>
+				</ul>
+			</p>
+		</font>
+		</section>
+
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			 <h3>Material Covered after Exam2</h3>
+			<p>
+				<ul>
+					<li>Normal Distribution: definition, parameter, PDF, CDF, expected value, variance, standard Normal, Z-score, emprical rules, approximation to Binomial</li>
+					<li>Five Number Summary and Boxplot</li>
+					<li>Types of Data, summarizing Data and graphs</li>
+					<li>Contigency Table and $\chi^2$ test</li>
+					<li>Scatterplot, correlation and linear regression</li>
+				</ul>
+			</p>
+		</font>
+		</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "4">
+			<h3>Normal Random Variable</h3>
+			<ul>
+				<li><b>Parameter:</b>
+					<ul>
+						<li>$\mu$: the mean of the random variable, determines the center of the distribution</li>
+						<li>$\sigma$: the standard deviation of the random variable, determines the shape of the distribution</li>
+					</ul>
+				</li>
+				<li>The standard normal distribution is the normal distribution with $\mu = 0, \sigma = 1$, namely, $X\sim N(\mu = 0, \sigma = 1)$</li>
+				<li>The CDF of standard normal distribution is denoted as $\Phi(x)$</li>
+				<li>You convert $X \sim N(\mu, \sigma)$ to $Z \sim N(\mu = 0, \sigma = 1)$, where $Z$ has the standard Normal distribution. Convert/standardize using:
+					$$Z = \frac{X - \mu}{\sigma}$$
+					This standardized value is called a Z-score
+				</li>
+				<li>Remember that your table gives you the probability
+					$$P(Z \le z) = \Phi(z)$$
+					<li>
+					<p>Steps to finding the sample score if you are given a probability and know $X \sim N(\mu, \sigma)$</p>
+					<ol>
+						<li>Set up your problem as follows $P(Z \le z_0) = probability$(Note: adjust $>$to $\le$ if necessary by using “1-probability”.) </li>
+						<li>Find the z-score by looking up the probability in the body of normal table</li>
+						<li>If you have a two-sided probability, use
+							$$P(-z_0 < Z \le z_0) = 2P(Z \le z_0) - 1 = 2 \Phi(z_0) - 1$$
+						</li>
+						<li>Convert the z-score to x using
+							$$z = \frac{x - \mu}{\sigma}$$
+						</li>
+					</ol>
+					</li>
+
+			</ul>
+		</font>
+		</section>
+
+	 <section data-transition="zoom" style="text-align: left;">
+		<font size = "6">
+		<h3>Boxplot</h3>
+		<p>Boxplot is a graphic depiction of the 5 number summary</p>
+		<ol>
+			<li>Draw a horizontal or vertical axis that is evenly spaced and well-labeled(make sure it covers the full range of the data)</li>
+			<li>Locate $Q_1$ and $Q_3$. There are the "ends" of your box. Draw the box.</li>
+			<li>With the box, locate the Median and mark it</li>
+			<li>Locate and mark the Minimum and Maximum. Extend a line("whisker") from each end of the box to the Max or Min</li>
+		</ol>
+		<p>To draw a modified boxplot, Step 1, 2, 3 are the same, BUT we indicate the outliers with a $o$ or a $\star$. Then draw the line from the ends of the box ot the highest or lowest data point that is NOT an outlier.
+		Most software generate boxplots are modified boxplots.</p>
+	</font>
+	</section>
+
+	<section data-transition="zoom" style="text-align: left;">
+		<font size = "5">
+		<h3>Contingency Table</h3>
+    <ul>
+			<li>Describes the relationship between two categorical variables, represents a table of counts (can include percentages).</li>
+	    <li>Calculate joint, conditional marginal probability</li>
+			<p>Test if there is a relationship between two qualitative (categorical) variables via Chi-Square($\chi^2$) Hypothesis test</p>
+			<ol>
+				<li>State the Null and Alternative hypothesis</li>
+				<li>Determine the confidence level and the significance level $\alpha$</li>
+				<li>Find the test statistic $$\chi^2 = \sum{\frac{(\textit{observed cell count} - \textit{expected cell count})^2}{\textit{expected cell count} }}$$</li>
+				<li>Determine the degrees of freedom needed to use the $\chi^2$ table</li>
+				<li>Find the $\chi^2$ critical value from the $\chi^2$ table.  Compare critical value from the table to the calculated $\chi^2$ value.</li>
+				<li>State the conclusion in terms of the problem</li>
+			</ol>
+    </ul>
+
+	</font>
+	</section>
+
+	<section data-transition="zoom" style="text-align: left;">
+		<font size = "4">
+		<h3>Least-Squares Regression</h3>
+		<ul>
+			<li>Minimizes $\sum_i^n e_i^2$ </li>
+			<li>Equation of the line is: $\hat{y} = b_0 + b_1 x$</li>
+			<li><b>Slope</b> of the line is:$b_1$, where the slope measures the amount of change caused in the response variable when the explanatory variable is increased by one unit.</li>
+			<li><b>Intercept</b> of the line is:$b_0$, where the intercept is the value of the response variable when the explanatory variable = 0.  (i.e. value where line intersects the y-axis)</li>
+			<li>Used for Prediction:  using the line to find y-values corresponding to x-values that are within the range of your data x-values</li>
+			<li>Using values outside range of the collected data can lead to <b>extrapolation</b>  </li>
+			<li>Coefficient of Determination: Denoted by $r^2$, it gives the proportion of the variance of the response variable that is predicted by the explanatory variable. So when $r^2$ is high, close to 1 or 100%, you have explained most of the variability.
+			Also, it equals to the equare of the correlation between $x$ and $y$, $r^2 = r_{xy}^2$</li>
+			<li>Residuals: the difference between the observed value of the response variable ($y$) and the predicted value ($\hat{y}$):
+				residuals = observed y - predicted y, $$e = y - \hat{y}$$
+			</li>
+		</ul>
+	</font>
+	</section>
+
+		<section data-transition="zoom" style="text-align: left;">
+			<font size = "5">
+			 <h3>Material Covered before Exam2</h3>
+			<p>
+				<ul>
+					<li>Refer to <a href="lecture15.html">Lecture 15</a> for a summary of materials before Exam 1</li>
+					<li>Refer to <a href="lecture21.html">Lecture 21</a> for a summary of discrete random variables</li>
+					<li>Refer to <a href="lecture28.html">Lecture 28</a> for a summary of materials after Exam 1</li>
+					<li>
+					 Discrete
+					 <ul>
+						 <li>Bernoulli</li>
+						 <li>Binomial</li>
+						 <li>Hypergeometric</li>
+						 <li>Poisson</li>
+						 <li>Geometric</li>
+						 <li>Negative Binomial</li>
+					 </ul>
+				 </li>
+				 <li>Continuous
+					 <ul>
+						 <li>Uniform</li>
+						 <li>Exponential</li>
+					 </ul>
+				 </li>
+
+				</ul>
+			</p>
+		</font>
+		</section>
+	</div>
+</div>
+
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [{
+				src: '../reveal.js/lib/js/classList.js'
+			},
+			{
+				src: '../reveal.js/plugin/math/math.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/markdown/marked.js'
+			},
+			{
+				src: '../reveal.js/plugin/markdown/markdown.js'
+			},
+			{
+				src: '../reveal.js/plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: '../reveal.js/plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}
+		]
+	});
+</script>
+</body>
+
+</html>
